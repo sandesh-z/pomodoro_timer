@@ -13,16 +13,20 @@ part 'pomodoro_bloc.freezed.dart';
 class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
   PomodoroTimerRepository pomodoroTimerRepository;
-  PomodoroBloc(this.pomodoroTimerRepository)
-      : super(PomodoroState.initial(initialValue: Duration(minutes: 25)));
+  PomodoroBloc({required this.pomodoroTimerRepository})
+      : super(PomodoroState.initial(initialValue: Duration(minutes: 25))) {
+    on<PomodoroTimerDecrementPressed>(
+        (PomodoroTimerDecrementPressed event, Emitter<PomodoroState> emit) {
+      timer?.cancel();
+      timer = null;
 
-  // on<PomodoroTimerDecrementPressed>(
-  //   PomodoroTimerDecrementPressed event, Emitter<PomodoroEvent> emit){
-  //   timer?.cancel();
-  //   timer = null;
-  //   pomodoroTimerRepository.subtractTimer(Duration(seconds: 1));
-  //   emit(PomodoroState.decrement(
+      pomodoroTimerRepository.subtractTimer(event.decrementValue);
 
-  //   ));
-  // }
+      emit(PomodoroState.decrement(
+          decrementValue: pomodoroTimerRepository.getTimer()));
+      timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+        add(PomodoroEvent.decrement(decrementValue: event.decrementValue));
+      });
+    });
+  }
 }
