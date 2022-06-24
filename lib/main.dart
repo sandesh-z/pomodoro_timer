@@ -6,10 +6,12 @@ import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/data_sources/
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/repositories/pomodoro_timer.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/domain/repositories/pomodoro_timer.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
+import 'package:my_pomodoro_timer/injection.dart';
 
 import 'features/pomodoro_timer_app/presentation/pages/home_page.dart';
 
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 
@@ -21,8 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<PomodoroBloc>(
       create: (_) => PomodoroBloc(
-        pomodoroTimerRepository: PomodoroTimerRepositoryImpl(),
-      ),
+        getIt<PomodoroTimerRepository>(),
+      )..add(PomodoroEvent.decrement(decrementValue: Duration(seconds: 1))),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

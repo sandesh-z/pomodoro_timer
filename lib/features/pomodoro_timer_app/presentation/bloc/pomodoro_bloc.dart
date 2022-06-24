@@ -13,7 +13,7 @@ part 'pomodoro_bloc.freezed.dart';
 class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
   PomodoroTimerRepository pomodoroTimerRepository;
-  PomodoroBloc({required this.pomodoroTimerRepository})
+  PomodoroBloc(this.pomodoroTimerRepository)
       : super(PomodoroState.initial(initialValue: Duration(minutes: 25))) {
     on<PomodoroTimerDecrementPressed>(
         (PomodoroTimerDecrementPressed event, Emitter<PomodoroState> emit) {

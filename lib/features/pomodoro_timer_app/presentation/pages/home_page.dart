@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pomodoro_timer/core/themes/my-globals.dart';
+import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -128,12 +130,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     child: Column(
                       children: [
-                        Text(
-                          '$minutes:$seconds',
-                          style: TextStyle(
-                            fontSize: 75,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        BlocConsumer<PomodoroBloc, PomodoroState>(
+                          listener: (context, state) {
+                            state.map(
+                                initial: (s) {},
+                                loading: (s) {},
+                                loaded: (s) {},
+                                started: (s) {},
+                                decrement: (s) {});
+                          },
+                          builder: (context, state) {
+                            return Text(
+                              state.map(
+                                initial: (value) =>
+                                    value.initialValue.toString(),
+                                loading: (value) => value.toString(),
+                                loaded: (value) => value.toString(),
+                                started: (value) => value.toString(),
+                                decrement: (value) => value.toString(),
+                              ),
+                              // '$minutes:$seconds',
+                              style: TextStyle(
+                                fontSize: 75,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            );
+                          },
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -144,16 +166,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           width: 200,
                           child: TextButton(
                               onPressed: () {
-                                setState(() {
-                                  if (isStarted) {
-                                    isStarted = false;
-                                    stopTimer();
-                                    resetTimer();
-                                  } else {
-                                    isStarted = true;
-                                    startTimer();
-                                  }
-                                });
+                                BlocProvider.of<PomodoroBloc>(context).add(
+                                    const PomodoroEvent.decrement(
+                                        decrementValue: Duration(seconds: 1)));
+                                // setState(() {
+                                //   if (isStarted) {
+
+                                //     isStarted = false;
+                                //      stopTimer();
+                                //      resetTimer();
+                                //   } else {
+                                //     isStarted = true;
+                                //      startTimer();
+                                //   }
+                                // });
                               },
                               child: Text(
                                 isStarted ? "STOP" : "START",
@@ -167,12 +193,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     child: Column(
                       children: [
-                        Text(
-                          '$breakMinutes:$breakSeconds',
-                          style: TextStyle(
-                            fontSize: 75,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        BlocConsumer<PomodoroBloc, PomodoroState>(
+                          listener: (context, state) {
+                            // TODO: implement listener
+                          },
+                          builder: (context, state) {
+                            return Text(
+                              '$breakMinutes:',
+                              style: TextStyle(
+                                fontSize: 75,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            );
+                          },
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -182,25 +215,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           height: 55,
                           width: 200,
                           child: TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  if (isStartedShortBreak) {
-                                    // isStartedShortBreak = false;
-                                    // stopTimer();
-                                    // resetTimer()
-                                    // ;
-                                    startTimerShort();
-                                  } else {
-                                    // isStartedShortBreak = true;
-                                    startTimerShort();
-                                  }
-                                });
-                              },
-                              child: Text(
-                                isStartedLongBreak ? "STOP" : "START",
-                                style: TextStyle(
-                                    fontSize: 22, color: shortBreakColor),
-                              )),
+                            onPressed: () {
+                              // setState(() {
+                              //   if (isStartedShortBreak) {
+                              //     // isStartedShortBreak = false;
+                              //     // stopTimer();
+                              //     // resetTimer()
+                              //     // ;
+                              //     startTimerShort();
+                              //   } else {
+                              //     // isStartedShortBreak = true;
+                              //     startTimerShort();
+                              //   }
+                              // });
+                            },
+                            child: Text(
+                              isStartedLongBreak ? "STOP" : "START",
+                              style: TextStyle(
+                                  fontSize: 22, color: shortBreakColor),
+                            ),
+                          ),
                         )
                       ],
                     ),

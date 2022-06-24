@@ -1,8 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/data_sources/timer.dart';
 
 import '../../domain/repositories/pomodoro_timer.dart';
 
-class PomodoroTimerRepositoryImpl extends PomodoroTimerRepository {
+@LazySingleton(as: PomodoroTimerRepository)
+class PomodoroTimerRepositoryImpl implements PomodoroTimerRepository {
   TimerDataSource timerDataSource;
 
   PomodoroTimerRepositoryImpl(this.timerDataSource);
