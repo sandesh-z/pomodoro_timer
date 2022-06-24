@@ -20,8 +20,7 @@ import 'features/pomodoro_timer_app/domain/repositories/pomodoro_timer.dart'
 _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
-  gh.lazySingleton<_i3.TimerDataSource>(
-      () => _i4.TimerDataSourceImpl(get<_i4.TimerDataSourceImpl>()));
+  gh.lazySingleton<_i3.TimerDataSource>(() => _i4.TimerDataSourceImpl());
   gh.lazySingleton<_i5.PomodoroTimerRepository>(
       () => _i6.PomodoroTimerRepositoryImpl(get<_i3.TimerDataSource>()));
   return get;

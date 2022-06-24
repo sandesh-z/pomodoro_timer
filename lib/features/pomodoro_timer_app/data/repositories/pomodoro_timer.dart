@@ -21,7 +21,6 @@ class PomodoroTimerRepositoryImpl implements PomodoroTimerRepository {
 
   @override
   Duration getTimer() {
-    // TODO: implement getTimer
-    throw UnimplementedError();
+    return timerDataSource.getTimer();
   }
 }

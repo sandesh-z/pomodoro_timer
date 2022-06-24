@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider<PomodoroBloc>(
       create: (_) => PomodoroBloc(
         getIt<PomodoroTimerRepository>(),
-      )..add(PomodoroEvent.decrement(decrementValue: Duration(seconds: 1))),
+      )..add(PomodoroEvent.loaded()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

@@ -14,7 +14,8 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
   PomodoroTimerRepository pomodoroTimerRepository;
   PomodoroBloc(this.pomodoroTimerRepository)
-      : super(PomodoroState.initial(initialValue: Duration(minutes: 25))) {
+      : super(PomodoroState.initial(
+            initialValue: Duration(minutes: 25, seconds: 0))) {
     on<PomodoroTimerDecrementPressed>(
         (PomodoroTimerDecrementPressed event, Emitter<PomodoroState> emit) {
       timer?.cancel();
@@ -23,10 +24,15 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
       pomodoroTimerRepository.subtractTimer(event.decrementValue);
 
       emit(PomodoroState.decrement(
-          decrementValue: pomodoroTimerRepository.getTimer()));
+          currentDuration: pomodoroTimerRepository.getTimer()));
       timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         add(PomodoroEvent.decrement(decrementValue: event.decrementValue));
       });
+    });
+    on<PomodoroTimerLoaded>(
+        (PomodoroTimerLoaded event, Emitter<PomodoroState> emit) {
+      emit(PomodoroState.initial(
+          initialValue: Duration(minutes: 25, seconds: 0)));
     });
   }
 }

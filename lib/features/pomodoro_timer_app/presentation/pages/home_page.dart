@@ -79,6 +79,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  String parseDuration(Duration duration) {
+    var seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
+    var minutes = (duration.inMinutes % 60).toString().padLeft(2, '0');
+    return "$minutes:$seconds";
+  }
+
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
@@ -90,9 +96,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     //for short break
     final breakMinutes =
-        myShortBreakDuration.inMinutes.remainder(60).toString();
+        myShortBreakDuration.inMinutes.remainder(60).toString().padLeft(2, '0');
     final breakSeconds =
-        myShortBreakDuration.inSeconds.remainder(60).toString();
+        myShortBreakDuration.inSeconds.remainder(60).toString().padLeft(2, '0');
 
     return Scaffold(
       backgroundColor: longBreakColor,
@@ -142,12 +148,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           builder: (context, state) {
                             return Text(
                               state.map(
-                                initial: (value) =>
-                                    value.initialValue.toString(),
-                                loading: (value) => value.toString(),
-                                loaded: (value) => value.toString(),
-                                started: (value) => value.toString(),
-                                decrement: (value) => value.toString(),
+                                initial: (value) => '$minutes:$seconds',
+                                // value.initialValue.inMinutes.toString(),
+                                // "${value.initialValue.inMinutes}:${value.initialValue.inSeconds}",
+                                loading: (s) => 'Loading',
+                                loaded: (loaded) =>
+                                    loaded.initialValue.toString(),
+                                started: (started) => 'Started',
+                                decrement: (value) =>
+                                    parseDuration(value.currentDuration),
                               ),
                               // '$minutes:$seconds',
                               style: TextStyle(
@@ -193,19 +202,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Container(
                     child: Column(
                       children: [
-                        BlocConsumer<PomodoroBloc, PomodoroState>(
-                          listener: (context, state) {
-                            // TODO: implement listener
-                          },
-                          builder: (context, state) {
-                            return Text(
-                              '$breakMinutes:',
-                              style: TextStyle(
-                                fontSize: 75,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            );
-                          },
+                        Text(
+                          '$breakMinutes:$breakSeconds',
+                          style: TextStyle(
+                            fontSize: 75,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Container(
                           decoration: BoxDecoration(

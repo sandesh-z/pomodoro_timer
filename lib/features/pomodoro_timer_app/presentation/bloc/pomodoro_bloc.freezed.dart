@@ -793,27 +793,27 @@ mixin _$PomodoroState {
   TResult when<TResult extends Object?>({
     required TResult Function(Duration initialValue) initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
-    required TResult Function(Duration decrementValue) decrement,
+    required TResult Function(Duration currentDuration) decrement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -942,9 +942,9 @@ class _$_PomodoroInitial
   TResult when<TResult extends Object?>({
     required TResult Function(Duration initialValue) initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
-    required TResult Function(Duration decrementValue) decrement,
+    required TResult Function(Duration currentDuration) decrement,
   }) {
     return initial(initialValue);
   }
@@ -954,9 +954,9 @@ class _$_PomodoroInitial
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
   }) {
     return initial?.call(initialValue);
   }
@@ -966,9 +966,9 @@ class _$_PomodoroInitial
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1079,9 +1079,9 @@ class _$_PomodoroLoading
   TResult when<TResult extends Object?>({
     required TResult Function(Duration initialValue) initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
-    required TResult Function(Duration decrementValue) decrement,
+    required TResult Function(Duration currentDuration) decrement,
   }) {
     return loading();
   }
@@ -1091,9 +1091,9 @@ class _$_PomodoroLoading
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
   }) {
     return loading?.call();
   }
@@ -1103,9 +1103,9 @@ class _$_PomodoroLoading
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1164,6 +1164,7 @@ abstract class _$$_PomodoroLoadedCopyWith<$Res> {
   factory _$$_PomodoroLoadedCopyWith(
           _$_PomodoroLoaded value, $Res Function(_$_PomodoroLoaded) then) =
       __$$_PomodoroLoadedCopyWithImpl<$Res>;
+  $Res call({Duration initialValue});
 }
 
 /// @nodoc
@@ -1176,6 +1177,18 @@ class __$$_PomodoroLoadedCopyWithImpl<$Res>
 
   @override
   _$_PomodoroLoaded get _value => super._value as _$_PomodoroLoaded;
+
+  @override
+  $Res call({
+    Object? initialValue = freezed,
+  }) {
+    return _then(_$_PomodoroLoaded(
+      initialValue: initialValue == freezed
+          ? _value.initialValue
+          : initialValue // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
 }
 
 /// @nodoc
@@ -1183,38 +1196,52 @@ class __$$_PomodoroLoadedCopyWithImpl<$Res>
 class _$_PomodoroLoaded
     with DiagnosticableTreeMixin
     implements _PomodoroLoaded {
-  const _$_PomodoroLoaded();
+  const _$_PomodoroLoaded({required this.initialValue});
+
+  @override
+  final Duration initialValue;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PomodoroState.loaded()';
+    return 'PomodoroState.loaded(initialValue: $initialValue)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'PomodoroState.loaded'));
+    properties
+      ..add(DiagnosticsProperty('type', 'PomodoroState.loaded'))
+      ..add(DiagnosticsProperty('initialValue', initialValue));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PomodoroLoaded);
+        (other.runtimeType == runtimeType &&
+            other is _$_PomodoroLoaded &&
+            const DeepCollectionEquality()
+                .equals(other.initialValue, initialValue));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(initialValue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PomodoroLoadedCopyWith<_$_PomodoroLoaded> get copyWith =>
+      __$$_PomodoroLoadedCopyWithImpl<_$_PomodoroLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Duration initialValue) initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
-    required TResult Function(Duration decrementValue) decrement,
+    required TResult Function(Duration currentDuration) decrement,
   }) {
-    return loaded();
+    return loaded(initialValue);
   }
 
   @override
@@ -1222,11 +1249,11 @@ class _$_PomodoroLoaded
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
   }) {
-    return loaded?.call();
+    return loaded?.call(initialValue);
   }
 
   @override
@@ -1234,13 +1261,13 @@ class _$_PomodoroLoaded
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded();
+      return loaded(initialValue);
     }
     return orElse();
   }
@@ -1287,7 +1314,13 @@ class _$_PomodoroLoaded
 }
 
 abstract class _PomodoroLoaded implements PomodoroState {
-  const factory _PomodoroLoaded() = _$_PomodoroLoaded;
+  const factory _PomodoroLoaded({required final Duration initialValue}) =
+      _$_PomodoroLoaded;
+
+  Duration get initialValue => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_PomodoroLoadedCopyWith<_$_PomodoroLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1341,9 +1374,9 @@ class _$_PomodoroTimerStart
   TResult when<TResult extends Object?>({
     required TResult Function(Duration initialValue) initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
-    required TResult Function(Duration decrementValue) decrement,
+    required TResult Function(Duration currentDuration) decrement,
   }) {
     return started();
   }
@@ -1353,9 +1386,9 @@ class _$_PomodoroTimerStart
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
   }) {
     return started?.call();
   }
@@ -1365,9 +1398,9 @@ class _$_PomodoroTimerStart
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -1426,7 +1459,7 @@ abstract class _$$_PomodoroTimerDecrementCopyWith<$Res> {
   factory _$$_PomodoroTimerDecrementCopyWith(_$_PomodoroTimerDecrement value,
           $Res Function(_$_PomodoroTimerDecrement) then) =
       __$$_PomodoroTimerDecrementCopyWithImpl<$Res>;
-  $Res call({Duration decrementValue});
+  $Res call({Duration currentDuration});
 }
 
 /// @nodoc
@@ -1443,12 +1476,12 @@ class __$$_PomodoroTimerDecrementCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? decrementValue = freezed,
+    Object? currentDuration = freezed,
   }) {
     return _then(_$_PomodoroTimerDecrement(
-      decrementValue: decrementValue == freezed
-          ? _value.decrementValue
-          : decrementValue // ignore: cast_nullable_to_non_nullable
+      currentDuration: currentDuration == freezed
+          ? _value.currentDuration
+          : currentDuration // ignore: cast_nullable_to_non_nullable
               as Duration,
     ));
   }
@@ -1459,14 +1492,14 @@ class __$$_PomodoroTimerDecrementCopyWithImpl<$Res>
 class _$_PomodoroTimerDecrement
     with DiagnosticableTreeMixin
     implements _PomodoroTimerDecrement {
-  const _$_PomodoroTimerDecrement({required this.decrementValue});
+  const _$_PomodoroTimerDecrement({required this.currentDuration});
 
   @override
-  final Duration decrementValue;
+  final Duration currentDuration;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PomodoroState.decrement(decrementValue: $decrementValue)';
+    return 'PomodoroState.decrement(currentDuration: $currentDuration)';
   }
 
   @override
@@ -1474,7 +1507,7 @@ class _$_PomodoroTimerDecrement
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'PomodoroState.decrement'))
-      ..add(DiagnosticsProperty('decrementValue', decrementValue));
+      ..add(DiagnosticsProperty('currentDuration', currentDuration));
   }
 
   @override
@@ -1483,12 +1516,12 @@ class _$_PomodoroTimerDecrement
         (other.runtimeType == runtimeType &&
             other is _$_PomodoroTimerDecrement &&
             const DeepCollectionEquality()
-                .equals(other.decrementValue, decrementValue));
+                .equals(other.currentDuration, currentDuration));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(decrementValue));
+      runtimeType, const DeepCollectionEquality().hash(currentDuration));
 
   @JsonKey(ignore: true)
   @override
@@ -1501,11 +1534,11 @@ class _$_PomodoroTimerDecrement
   TResult when<TResult extends Object?>({
     required TResult Function(Duration initialValue) initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
-    required TResult Function(Duration decrementValue) decrement,
+    required TResult Function(Duration currentDuration) decrement,
   }) {
-    return decrement(decrementValue);
+    return decrement(currentDuration);
   }
 
   @override
@@ -1513,11 +1546,11 @@ class _$_PomodoroTimerDecrement
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
   }) {
-    return decrement?.call(decrementValue);
+    return decrement?.call(currentDuration);
   }
 
   @override
@@ -1525,13 +1558,13 @@ class _$_PomodoroTimerDecrement
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Duration initialValue)? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
-    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration currentDuration)? decrement,
     required TResult orElse(),
   }) {
     if (decrement != null) {
-      return decrement(decrementValue);
+      return decrement(currentDuration);
     }
     return orElse();
   }
@@ -1579,9 +1612,9 @@ class _$_PomodoroTimerDecrement
 
 abstract class _PomodoroTimerDecrement implements PomodoroState {
   const factory _PomodoroTimerDecrement(
-      {required final Duration decrementValue}) = _$_PomodoroTimerDecrement;
+      {required final Duration currentDuration}) = _$_PomodoroTimerDecrement;
 
-  Duration get decrementValue => throw _privateConstructorUsedError;
+  Duration get currentDuration => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_PomodoroTimerDecrementCopyWith<_$_PomodoroTimerDecrement> get copyWith =>
       throw _privateConstructorUsedError;

@@ -1,25 +1,25 @@
 import 'package:injectable/injectable.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/data_sources/timer.dart';
+import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
 
 @LazySingleton(as: TimerDataSource)
 class TimerDataSourceImpl implements TimerDataSource {
-  TimerDataSourceImpl timerDataSource;
+  TimerDataSourceImpl();
 
-  TimerDataSourceImpl(this.timerDataSource);
+  Duration duration = Duration(minutes: 25);
 
   @override
   subtractTimer(Duration subtractValue) {
-    timerDataSource.subtractTimer(subtractValue);
+    duration = Duration(seconds: duration.inSeconds - subtractValue.inSeconds);
   }
 
   @override
   resetTimer(Duration resetValue) {
-    timerDataSource.resetTimer(resetValue);
+    duration = Duration(minutes: 25);
   }
 
   @override
   Duration getTimer() {
-    // TODO: implement getTimer
-    throw UnimplementedError();
+    return duration;
   }
 }
