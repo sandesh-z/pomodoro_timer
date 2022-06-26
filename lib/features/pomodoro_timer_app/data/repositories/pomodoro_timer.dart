@@ -23,4 +23,9 @@ class PomodoroTimerRepositoryImpl implements PomodoroTimerRepository {
   Duration getTimer() {
     return timerDataSource.getTimer();
   }
+
+  @override
+  Duration setTimerType(Duration setValue) {
+    return timerDataSource.setTimerType(setValue);
+  }
 }

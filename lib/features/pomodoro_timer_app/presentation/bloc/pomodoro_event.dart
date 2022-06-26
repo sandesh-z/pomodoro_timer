@@ -8,5 +8,8 @@ class PomodoroEvent with _$PomodoroEvent {
   const factory PomodoroEvent.started() = PomodoroTimerStarted;
   const factory PomodoroEvent.decrement({required Duration decrementValue}) =
       PomodoroTimerDecrementPressed;
-  const factory PomodoroEvent.resetPressed() = PomodoroTimerResetPressed;
+  const factory PomodoroEvent.resetPressed({required Duration resetValue}) =
+      PomodoroTimerResetPressed;
+  const factory PomodoroEvent.setTimerType({required Duration setValue}) =
+      TimerTypeChanged;
 }
