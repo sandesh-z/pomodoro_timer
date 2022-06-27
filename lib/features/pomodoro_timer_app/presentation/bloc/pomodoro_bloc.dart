@@ -14,13 +14,15 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
   PomodoroTimerRepository pomodoroTimerRepository;
   PomodoroBloc(this.pomodoroTimerRepository)
-      : super(PomodoroState.initial(
+      : super(const PomodoroState.initial(
             initialValue: Duration(minutes: 25, seconds: 0))) {
     on<PomodoroTimerDecrementPressed>(
         (PomodoroTimerDecrementPressed event, Emitter<PomodoroState> emit) {
       timer?.cancel();
       timer = null;
-
+      if (pomodoroTimerRepository.getTimer().inSeconds == 0) {
+        timer!.cancel();
+      }
       pomodoroTimerRepository.subtractTimer(event.decrementValue);
 
       emit(PomodoroState.decrement(
@@ -29,17 +31,21 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
         add(PomodoroEvent.decrement(decrementValue: event.decrementValue));
       });
     });
+
     on<PomodoroTimerLoaded>(
         (PomodoroTimerLoaded event, Emitter<PomodoroState> emit) {
-      emit(PomodoroState.initial(
+      emit(const PomodoroState.initial(
           initialValue: Duration(minutes: 25, seconds: 0)));
     });
+
     on<TimerTypeChanged>((TimerTypeChanged event, Emitter<PomodoroState> emit) {
       pomodoroTimerRepository.setTimerType(event.setValue);
       emit(PomodoroState.setTimerType(setValue: event.setValue));
     });
+
     on<PomodoroTimerResetPressed>(
         (PomodoroTimerResetPressed event, Emitter<PomodoroState> emit) {
+      timer!.cancel();
       pomodoroTimerRepository.resetTimer(event.resetValue);
       emit(PomodoroState.resetPressed(resetValue: event.resetValue));
     });

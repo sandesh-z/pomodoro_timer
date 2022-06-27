@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:my_pomodoro_timer/core/themes/themes.dart';
-import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/data_sources/timer.dart';
-import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/repositories/pomodoro_timer.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/domain/repositories/pomodoro_timer.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
 import 'package:my_pomodoro_timer/injection.dart';
@@ -24,7 +22,8 @@ class MyApp extends StatelessWidget {
     return BlocProvider<PomodoroBloc>(
       create: (_) => PomodoroBloc(
         getIt<PomodoroTimerRepository>(),
-      )..add(PomodoroEvent.loaded()),
+      ),
+      // )..add(const PomodoroEvent.loaded()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

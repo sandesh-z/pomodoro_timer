@@ -4,7 +4,7 @@ final lightTheme = ThemeData(
   brightness: Brightness.light,
   useMaterial3: true,
   primarySwatch: Colors.red,
-  scaffoldBackgroundColor: Color.fromRGBO(217, 85, 80, 0.9),
+  scaffoldBackgroundColor: const Color.fromRGBO(217, 85, 80, 0.9),
   // textButtonTheme: _kTextButtonTheme,
   textTheme: const TextTheme(
     bodyText1: TextStyle(
@@ -16,7 +16,7 @@ final lightTheme = ThemeData(
     headline1:
         TextStyle(color: Colors.white, fontSize: 32, fontFamily: 'NoeDisplay'),
   ),
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: Colors.white,
   ),
 );
