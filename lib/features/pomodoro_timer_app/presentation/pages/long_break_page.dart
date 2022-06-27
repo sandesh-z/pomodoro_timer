@@ -62,18 +62,19 @@ class _LongBreakPageState extends State<LongBreakPage> {
               );
             },
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.white,
-            ),
-            height: 55,
-            width: 200,
-            child: isStartedLongBreak
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
+          isStartedLongBreak
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(child: SizedBox()),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.white,
+                      ),
+                      height: 55,
+                      width: 200,
+                      child: TextButton(
                           onPressed: () {
                             setState(() {
                               isStartedLongBreak = false;
@@ -88,17 +89,30 @@ class _LongBreakPageState extends State<LongBreakPage> {
                                 fontSize: 22,
                                 color: Color.fromRGBO(76, 145, 149, 0.9)),
                           )),
-                      const SizedBox(width: 12),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.skip_next,
-                            color: Colors.white,
-                            size: 22,
-                          )),
-                    ],
-                  )
-                : TextButton(
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.skip_next,
+                              color: Colors.white,
+                              size: 35,
+                            )),
+                      ),
+                    ),
+                  ],
+                )
+              : Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  height: 55,
+                  width: 200,
+                  child: TextButton(
                     onPressed: () {
                       setState(() {
                         isStartedLongBreak = true;
@@ -117,7 +131,7 @@ class _LongBreakPageState extends State<LongBreakPage> {
                       style: TextStyle(fontSize: 22, color: longBreakColor),
                     ),
                   ),
-          ),
+                ),
         ],
       ),
     );

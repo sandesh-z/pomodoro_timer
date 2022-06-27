@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
+import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/pages/short_break_page.dart';
 
 import '../bloc/pomodoro_bloc.dart';
 
@@ -64,9 +65,11 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
           ),
           isStartedPomodoro
               ? Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.end,
+                  // mainAxisSize: MainAxisSize.min,
                   children: [
+                    Expanded(child: SizedBox()),
                     Container(
                       // alignment: Alignment.center,
                       // padding: const EdgeInsets.only(left: 50),
@@ -92,13 +95,19 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                           )),
                     ),
                     const SizedBox(width: 12),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.skip_next,
-                          color: Colors.white,
-                          size: 35,
-                        )),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: IconButton(
+                            color: pomodoroColor,
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.skip_next,
+                              color: Colors.white,
+                              size: 35,
+                            )),
+                      ),
+                    ),
                   ],
                 )
               : Container(

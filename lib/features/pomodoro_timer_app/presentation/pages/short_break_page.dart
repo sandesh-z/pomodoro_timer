@@ -56,18 +56,19 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
               );
             },
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.white,
-            ),
-            height: 55,
-            width: 200,
-            child: isStartedShortBreak
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
+          isStartedShortBreak
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(child: SizedBox()),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.white,
+                      ),
+                      height: 55,
+                      width: 200,
+                      child: TextButton(
                           onPressed: () {
                             setState(() {
                               isStartedShortBreak = false;
@@ -82,14 +83,27 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                                 fontSize: 22,
                                 color: Color.fromRGBO(76, 145, 149, 0.9)),
                           )),
-                      const SizedBox(width: 12),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.skip_next,
-                              color: Colors.white, size: 22)),
-                    ],
-                  )
-                : TextButton(
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.skip_next,
+                                color: Colors.white, size: 35)),
+                      ),
+                    ),
+                  ],
+                )
+              : Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  height: 55,
+                  width: 200,
+                  child: TextButton(
                     onPressed: () {
                       setState(() {
                         isStartedShortBreak = true;
@@ -108,7 +122,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       style: TextStyle(fontSize: 22, color: shortBreakColor),
                     ),
                   ),
-          ),
+                ),
         ],
       ),
     );
