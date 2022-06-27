@@ -19,10 +19,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   bool isStartedPomodoro = false;
   bool isStartedShortBreak = false;
   bool isStartedLongBreak = false;
+  TabController? tabController;
 
-  Timer? countDownTimer;
-  Duration myDuration = const Duration(minutes: 25);
-  Duration myShortBreakDuration = const Duration(minutes: 5);
+  Color _color = pomodoroColor;
 
   String parseDuration(Duration duration) {
     var seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
@@ -31,34 +30,57 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 3, vsync: this);
+  void initState() {
+    super.initState();
 
+    tabController = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController?.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: longBreakColor,
+      backgroundColor: _color,
       body: Column(
         children: [
           const SizedBox(height: 50),
           Card(
-            color: longBreakColor,
+            color: _color,
             child: TabBar(
               controller: tabController,
               onTap: (id) {
                 if (id == 0) {
+                  setState(() {
+                    _color = pomodoroColor;
+                  });
                   BlocProvider.of<PomodoroBloc>(context).add(
                       const PomodoroEvent.resetPressed(
                           resetValue: Duration(minutes: 25)));
                 }
                 if (id == 1) {
+                  setState(() {
+                    _color = shortBreakColor;
+                  });
                   BlocProvider.of<PomodoroBloc>(context).add(
                       const PomodoroEvent.resetPressed(
                           resetValue: Duration(minutes: 5)));
                 }
                 if (id == 2) {
+                  setState(() {
+                    _color = longBreakColor;
+                  });
                   BlocProvider.of<PomodoroBloc>(context).add(
                       const PomodoroEvent.resetPressed(
                           resetValue: Duration(minutes: 10)));
                 }
+
+                tabController?.animateTo(id, curve: Curves.linear);
               },
               physics: const NeverScrollableScrollPhysics(),
               indicatorColor: Colors.transparent,

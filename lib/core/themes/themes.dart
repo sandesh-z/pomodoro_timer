@@ -4,7 +4,7 @@ final lightTheme = ThemeData(
   brightness: Brightness.light,
   useMaterial3: true,
   primarySwatch: Colors.red,
-  scaffoldBackgroundColor: const Color.fromRGBO(217, 85, 80, 0.9),
+  // scaffoldBackgroundColor: const Color.fromRGBO(217, 85, 80, 0.9),
   // textButtonTheme: _kTextButtonTheme,
   textTheme: const TextTheme(
     bodyText1: TextStyle(

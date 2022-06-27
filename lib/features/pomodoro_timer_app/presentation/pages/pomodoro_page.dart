@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
 
 import '../bloc/pomodoro_bloc.dart';
 
@@ -22,6 +23,7 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           BlocConsumer<PomodoroBloc, PomodoroState>(
             listener: (context, state) {
@@ -60,18 +62,21 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
               );
             },
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.white,
-            ),
-            height: 55,
-            width: 200,
-            child: isStartedPomodoro
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
+          isStartedPomodoro
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      // alignment: Alignment.center,
+                      // padding: const EdgeInsets.only(left: 50),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.white,
+                      ),
+                      height: 55,
+                      width: 200,
+                      child: TextButton(
                           onPressed: () {
                             setState(() {
                               isStartedPomodoro = false;
@@ -80,18 +85,30 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                                 const PomodoroEvent.resetPressed(
                                     resetValue: Duration(minutes: 25)));
                           },
-                          child: const Text(
+                          child: Text(
                             'STOP',
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Color.fromRGBO(76, 145, 149, 0.9)),
+                            style:
+                                TextStyle(fontSize: 22, color: pomodoroColor),
                           )),
-                      const SizedBox(width: 12),
-                      IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.pause)),
-                    ],
-                  )
-                : TextButton(
+                    ),
+                    const SizedBox(width: 12),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.skip_next,
+                          color: Colors.white,
+                          size: 35,
+                        )),
+                  ],
+                )
+              : Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  height: 55,
+                  width: 200,
+                  child: TextButton(
                     onPressed: () {
                       setState(() {
                         isStartedPomodoro = true;
@@ -105,14 +122,12 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                               decrementValue: Duration(seconds: 1)));
                       // isStartedShortBreak = true;
                     },
-                    child: const Text(
+                    child: Text(
                       'START',
-                      style: TextStyle(
-                          fontSize: 22,
-                          color: Color.fromRGBO(76, 145, 149, 0.9)),
+                      style: TextStyle(fontSize: 22, color: pomodoroColor),
                     ),
                   ),
-          ),
+                ),
         ],
       ),
     );

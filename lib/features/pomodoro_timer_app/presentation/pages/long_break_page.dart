@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
 
 import '../bloc/pomodoro_bloc.dart';
 
@@ -89,7 +90,12 @@ class _LongBreakPageState extends State<LongBreakPage> {
                           )),
                       const SizedBox(width: 12),
                       IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.pause)),
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.skip_next,
+                            color: Colors.white,
+                            size: 22,
+                          )),
                     ],
                   )
                 : TextButton(
@@ -106,11 +112,9 @@ class _LongBreakPageState extends State<LongBreakPage> {
                               decrementValue: Duration(seconds: 1)));
                       // isStartedShortBreak = true;
                     },
-                    child: const Text(
+                    child: Text(
                       'START',
-                      style: TextStyle(
-                          fontSize: 22,
-                          color: Color.fromRGBO(76, 145, 149, 0.9)),
+                      style: TextStyle(fontSize: 22, color: longBreakColor),
                     ),
                   ),
           ),
