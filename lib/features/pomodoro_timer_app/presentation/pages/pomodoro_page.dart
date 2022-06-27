@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
-import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/pages/short_break_page.dart';
 
 import '../bloc/pomodoro_bloc.dart';
 
 class PomodoroTimerPage extends StatefulWidget {
-  PomodoroTimerPage({Key? key}) : super(key: key);
+  void Function() onNextPressed;
+
+  PomodoroTimerPage({Key? key, required this.onNextPressed}) : super(key: key);
 
   @override
   State<PomodoroTimerPage> createState() => _PomodoroTimerPageState();
@@ -100,7 +101,7 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                         alignment: Alignment.centerLeft,
                         child: IconButton(
                             color: pomodoroColor,
-                            onPressed: () {},
+                            onPressed: widget.onNextPressed,
                             icon: const Icon(
                               Icons.skip_next,
                               color: Colors.white,

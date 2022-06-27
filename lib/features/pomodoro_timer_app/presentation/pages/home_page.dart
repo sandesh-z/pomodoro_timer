@@ -121,9 +121,33 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               physics: const NeverScrollableScrollPhysics(),
               // physics: ,
               children: [
-                PomodoroTimerPage(),
-                ShortBreakPage(),
-                LongBreakPage(),
+                PomodoroTimerPage(onNextPressed: () {
+                  setState(() {
+                    tabController?.index = 1;
+                    BlocProvider.of<PomodoroBloc>(context).add(
+                        const PomodoroEvent.resetPressed(
+                            resetValue: Duration(minutes: 5)));
+                    _color = shortBreakColor;
+                  });
+                }),
+                ShortBreakPage(onNextPressed: () {
+                  setState(() {
+                    tabController?.index = 0;
+                    BlocProvider.of<PomodoroBloc>(context).add(
+                        const PomodoroEvent.resetPressed(
+                            resetValue: Duration(minutes: 25)));
+                    _color = pomodoroColor;
+                  });
+                }),
+                LongBreakPage(onNextPressed: () {
+                  setState(() {
+                    tabController?.index = 0;
+                    BlocProvider.of<PomodoroBloc>(context).add(
+                        const PomodoroEvent.resetPressed(
+                            resetValue: Duration(minutes: 25)));
+                    _color = pomodoroColor;
+                  });
+                }),
               ],
             ),
           ),

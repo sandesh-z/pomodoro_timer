@@ -5,7 +5,8 @@ import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
 import '../bloc/pomodoro_bloc.dart';
 
 class LongBreakPage extends StatefulWidget {
-  LongBreakPage({Key? key}) : super(key: key);
+  void Function() onNextPressed;
+  LongBreakPage({Key? key, required this.onNextPressed}) : super(key: key);
 
   @override
   State<LongBreakPage> createState() => _LongBreakPageState();
@@ -95,7 +96,7 @@ class _LongBreakPageState extends State<LongBreakPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: widget.onNextPressed,
                             icon: const Icon(
                               Icons.skip_next,
                               color: Colors.white,

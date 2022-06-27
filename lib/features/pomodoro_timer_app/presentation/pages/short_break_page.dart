@@ -5,7 +5,8 @@ import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
 import '../bloc/pomodoro_bloc.dart';
 
 class ShortBreakPage extends StatefulWidget {
-  ShortBreakPage({Key? key}) : super(key: key);
+  void Function() onNextPressed;
+  ShortBreakPage({Key? key, required this.onNextPressed}) : super(key: key);
 
   @override
   State<ShortBreakPage> createState() => _ShortBreakPageState();
@@ -89,7 +90,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: widget.onNextPressed,
                             icon: const Icon(Icons.skip_next,
                                 color: Colors.white, size: 35)),
                       ),
