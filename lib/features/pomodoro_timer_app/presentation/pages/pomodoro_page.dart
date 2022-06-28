@@ -14,11 +14,56 @@ class PomodoroTimerPage extends StatefulWidget {
 }
 
 class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
+  bool pomodoroStartPressed = true;
   bool isStartedPomodoro = false;
   String parseDuration(Duration duration) {
     var seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
     var minutes = (duration.inMinutes % 60).toString().padLeft(2, '0');
     return "$minutes:$seconds";
+  }
+
+  _showMyDialog() {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          // title: const Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Would you like to take a short break?',
+                    style: TextStyle(color: pomodoroColor)),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  child: const Text('Cancel'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                TextButton(
+                  child: const Text('Yes'),
+                  onPressed: () {
+                    widget.onNextPressed();
+
+                    Navigator.of(context).pop();
+                    BlocProvider.of<PomodoroBloc>(context).add(
+                        const PomodoroEvent.resetPressed(
+                            resetValue: Duration(minutes: 5)));
+                  },
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -69,8 +114,6 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
           isStartedPomodoro
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  // mainAxisAlignment: MainAxisAlignment.end,
-                  // mainAxisSize: MainAxisSize.min,
                   children: [
                     Expanded(child: SizedBox()),
                     Container(
@@ -102,7 +145,7 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                         alignment: Alignment.centerLeft,
                         child: IconButton(
                             color: pomodoroColor,
-                            onPressed: widget.onNextPressed,
+                            onPressed: _showMyDialog,
                             icon: const Icon(
                               Icons.skip_next,
                               color: Colors.white,
@@ -124,10 +167,15 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                       setState(() {
                         isStartedPomodoro = true;
                       });
+                      if (pomodoroStartPressed) {
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.setTimerType(
+                                setValue: Duration(minutes: 25)));
+                        setState(() {
+                          pomodoroStartPressed = false;
+                        });
+                      }
 
-                      BlocProvider.of<PomodoroBloc>(context).add(
-                          const PomodoroEvent.setTimerType(
-                              setValue: Duration(minutes: 25)));
                       BlocProvider.of<PomodoroBloc>(context).add(
                           const PomodoroEvent.decrement(
                               decrementValue: Duration(seconds: 1)));

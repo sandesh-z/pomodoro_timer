@@ -21,6 +21,47 @@ class _LongBreakPageState extends State<LongBreakPage> {
     return "$minutes:$seconds";
   }
 
+  _showMyDialog() {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          // title: const Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Text('Would you like to end break?',
+                    style: TextStyle(color: Colors.black)),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  child: const Text('Cancel'),
+                  onPressed: () {
+                    // widget.onNextPressed();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                TextButton(
+                  child: const Text('Yes'),
+                  onPressed: () {
+                    widget.onNextPressed();
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -97,7 +138,7 @@ class _LongBreakPageState extends State<LongBreakPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: IconButton(
-                            onPressed: widget.onNextPressed,
+                            onPressed: _showMyDialog,
                             icon: const Icon(
                               Icons.skip_next,
                               color: Colors.white,

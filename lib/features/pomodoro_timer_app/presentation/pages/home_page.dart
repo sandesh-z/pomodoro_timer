@@ -32,14 +32,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-
     tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   void dispose() {
     tabController?.dispose();
-
     super.dispose();
   }
 
