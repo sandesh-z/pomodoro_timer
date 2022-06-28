@@ -29,9 +29,9 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
           // title: const Text('AlertDialog Title'),
           content: SingleChildScrollView(
             child: ListBody(
-              children: const <Widget>[
+              children: <Widget>[
                 Text('Would you like to end short break?',
-                    style: TextStyle(color: Colors.black)),
+                    style: TextStyle(color: shortBreakColor)),
               ],
             ),
           ),
@@ -150,10 +150,15 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       setState(() {
                         isStartedShortBreak = true;
                       });
+                      if (shortBreakStartPressed) {
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.setTimerType(
+                                setValue: Duration(minutes: 5)));
+                        setState(() {
+                          shortBreakStartPressed = false;
+                        });
+                      }
 
-                      BlocProvider.of<PomodoroBloc>(context).add(
-                          const PomodoroEvent.setTimerType(
-                              setValue: Duration(minutes: 5)));
                       BlocProvider.of<PomodoroBloc>(context).add(
                           const PomodoroEvent.decrement(
                               decrementValue: Duration(seconds: 1)));
