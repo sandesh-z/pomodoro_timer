@@ -30,9 +30,9 @@ class _LongBreakPageState extends State<LongBreakPage> {
           // title: const Text('AlertDialog Title'),
           content: SingleChildScrollView(
             child: ListBody(
-              children: const <Widget>[
+              children: <Widget>[
                 Text('Would you like to end break?',
-                    style: TextStyle(color: Colors.black)),
+                    style: TextStyle(color: longBreakColor, fontSize: 16)),
               ],
             ),
           ),
@@ -41,14 +41,20 @@ class _LongBreakPageState extends State<LongBreakPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  child: const Text('Cancel'),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.red, fontSize: 16),
+                  ),
                   onPressed: () {
                     // widget.onNextPressed();
                     Navigator.of(context).pop();
                   },
                 ),
                 TextButton(
-                  child: const Text('Yes'),
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(color: longBreakColor, fontSize: 16),
+                  ),
                   onPressed: () {
                     widget.onNextPressed();
                     Navigator.of(context).pop();

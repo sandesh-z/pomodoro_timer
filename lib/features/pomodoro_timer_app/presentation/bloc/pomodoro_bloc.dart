@@ -45,14 +45,14 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
 
     on<PomodoroTimerResetPressed>(
         (PomodoroTimerResetPressed event, Emitter<PomodoroState> emit) {
-      timer!.cancel();
+      timer?.cancel();
       pomodoroTimerRepository.resetTimer(event.resetValue);
       emit(PomodoroState.resetPressed(resetValue: event.resetValue));
     });
 
     on<PomodoroTimerStoped>(
         (PomodoroTimerStoped event, Emitter<PomodoroState> emit) {
-      timer!.cancel();
+      timer?.cancel();
       timer = null;
       emit(PomodoroState.stop(timer: pomodoroTimerRepository.getTimer()));
     });

@@ -32,8 +32,10 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('Would you like to take a short break?',
-                    style: TextStyle(color: pomodoroColor)),
+                Text(
+                  'Would you like to take a short break?',
+                  style: TextStyle(color: pomodoroColor, fontSize: 16),
+                ),
               ],
             ),
           ),
@@ -42,20 +44,23 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  child: const Text('Cancel'),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.green, fontSize: 16),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
                 TextButton(
-                  child: const Text('Yes'),
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(color: pomodoroColor, fontSize: 16),
+                  ),
                   onPressed: () {
                     widget.onNextPressed();
 
                     Navigator.of(context).pop();
-                    BlocProvider.of<PomodoroBloc>(context).add(
-                        const PomodoroEvent.resetPressed(
-                            resetValue: Duration(minutes: 5)));
                   },
                 ),
               ],

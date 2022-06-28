@@ -31,7 +31,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
             child: ListBody(
               children: <Widget>[
                 Text('Would you like to end short break?',
-                    style: TextStyle(color: shortBreakColor)),
+                    style: TextStyle(color: shortBreakColor, fontSize: 16)),
               ],
             ),
           ),
@@ -40,13 +40,19 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  child: const Text('Cancel'),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.red, fontSize: 16),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
                 TextButton(
-                  child: const Text('Yes'),
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(color: shortBreakColor, fontSize: 16),
+                  ),
                   onPressed: () {
                     widget.onNextPressed();
                     Navigator.of(context).pop();
