@@ -49,6 +49,9 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                     style: TextStyle(color: Colors.green, fontSize: 16),
                   ),
                   onPressed: () {
+                    BlocProvider.of<PomodoroBloc>(context).add(
+                        const PomodoroEvent.decrement(
+                            decrementValue: Duration(seconds: 1)));
                     Navigator.of(context).pop();
                   },
                 ),
@@ -59,7 +62,8 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                   ),
                   onPressed: () {
                     widget.onNextPressed();
-
+                    BlocProvider.of<PomodoroBloc>(context)
+                        .add(const PomodoroEvent.stop());
                     Navigator.of(context).pop();
                   },
                 ),
@@ -150,7 +154,11 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                         alignment: Alignment.centerLeft,
                         child: IconButton(
                             color: pomodoroColor,
-                            onPressed: _showMyDialog,
+                            onPressed: () {
+                              _showMyDialog();
+                              BlocProvider.of<PomodoroBloc>(context)
+                                  .add(const PomodoroEvent.stop());
+                            },
                             icon: const Icon(
                               Icons.skip_next,
                               color: Colors.white,

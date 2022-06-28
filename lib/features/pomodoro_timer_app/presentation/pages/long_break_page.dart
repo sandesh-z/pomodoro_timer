@@ -46,7 +46,9 @@ class _LongBreakPageState extends State<LongBreakPage> {
                     style: TextStyle(color: Colors.red, fontSize: 16),
                   ),
                   onPressed: () {
-                    // widget.onNextPressed();
+                    BlocProvider.of<PomodoroBloc>(context).add(
+                        const PomodoroEvent.decrement(
+                            decrementValue: Duration(seconds: 1)));
                     Navigator.of(context).pop();
                   },
                 ),
@@ -144,7 +146,11 @@ class _LongBreakPageState extends State<LongBreakPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: IconButton(
-                            onPressed: _showMyDialog,
+                            onPressed: () {
+                              BlocProvider.of<PomodoroBloc>(context)
+                                  .add(const PomodoroEvent.stop());
+                              _showMyDialog();
+                            },
                             icon: const Icon(
                               Icons.skip_next,
                               color: Colors.white,

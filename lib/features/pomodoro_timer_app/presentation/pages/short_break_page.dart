@@ -45,6 +45,9 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                     style: TextStyle(color: Colors.red, fontSize: 16),
                   ),
                   onPressed: () {
+                    BlocProvider.of<PomodoroBloc>(context).add(
+                        const PomodoroEvent.decrement(
+                            decrementValue: Duration(seconds: 1)));
                     Navigator.of(context).pop();
                   },
                 ),
@@ -54,6 +57,8 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                     style: TextStyle(color: shortBreakColor, fontSize: 16),
                   ),
                   onPressed: () {
+                    BlocProvider.of<PomodoroBloc>(context)
+                        .add(const PomodoroEvent.stop());
                     widget.onNextPressed();
                     Navigator.of(context).pop();
                   },
@@ -137,7 +142,11 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: IconButton(
-                            onPressed: _showMyDialog,
+                            onPressed: () {
+                              BlocProvider.of<PomodoroBloc>(context)
+                                  .add(const PomodoroEvent.stop());
+                              _showMyDialog();
+                            },
                             icon: const Icon(Icons.skip_next,
                                 color: Colors.white, size: 35)),
                       ),
