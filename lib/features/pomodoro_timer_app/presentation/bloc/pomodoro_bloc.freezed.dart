@@ -20,6 +20,7 @@ mixin _$PomodoroEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loding,
     required TResult Function() loaded,
+    required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
     required TResult Function(Duration resetValue) resetPressed,
@@ -30,6 +31,7 @@ mixin _$PomodoroEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -40,6 +42,7 @@ mixin _$PomodoroEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -51,6 +54,7 @@ mixin _$PomodoroEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(PomodoroTimerLoading value) loding,
     required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
     required TResult Function(PomodoroTimerStarted value) started,
     required TResult Function(PomodoroTimerDecrementPressed value) decrement,
     required TResult Function(PomodoroTimerResetPressed value) resetPressed,
@@ -61,6 +65,7 @@ mixin _$PomodoroEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -71,6 +76,7 @@ mixin _$PomodoroEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -148,6 +154,7 @@ class _$PomodoroTimerLoading
   TResult when<TResult extends Object?>({
     required TResult Function() loding,
     required TResult Function() loaded,
+    required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
     required TResult Function(Duration resetValue) resetPressed,
@@ -161,6 +168,7 @@ class _$PomodoroTimerLoading
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -174,6 +182,7 @@ class _$PomodoroTimerLoading
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -191,6 +200,7 @@ class _$PomodoroTimerLoading
   TResult map<TResult extends Object?>({
     required TResult Function(PomodoroTimerLoading value) loding,
     required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
     required TResult Function(PomodoroTimerStarted value) started,
     required TResult Function(PomodoroTimerDecrementPressed value) decrement,
     required TResult Function(PomodoroTimerResetPressed value) resetPressed,
@@ -204,6 +214,7 @@ class _$PomodoroTimerLoading
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -217,6 +228,7 @@ class _$PomodoroTimerLoading
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -285,6 +297,7 @@ class _$PomodoroTimerLoaded
   TResult when<TResult extends Object?>({
     required TResult Function() loding,
     required TResult Function() loaded,
+    required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
     required TResult Function(Duration resetValue) resetPressed,
@@ -298,6 +311,7 @@ class _$PomodoroTimerLoaded
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -311,6 +325,7 @@ class _$PomodoroTimerLoaded
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -328,6 +343,7 @@ class _$PomodoroTimerLoaded
   TResult map<TResult extends Object?>({
     required TResult Function(PomodoroTimerLoading value) loding,
     required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
     required TResult Function(PomodoroTimerStarted value) started,
     required TResult Function(PomodoroTimerDecrementPressed value) decrement,
     required TResult Function(PomodoroTimerResetPressed value) resetPressed,
@@ -341,6 +357,7 @@ class _$PomodoroTimerLoaded
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -354,6 +371,7 @@ class _$PomodoroTimerLoaded
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -369,6 +387,149 @@ class _$PomodoroTimerLoaded
 
 abstract class PomodoroTimerLoaded implements PomodoroEvent {
   const factory PomodoroTimerLoaded() = _$PomodoroTimerLoaded;
+}
+
+/// @nodoc
+abstract class _$$PomodoroTimerStopedCopyWith<$Res> {
+  factory _$$PomodoroTimerStopedCopyWith(_$PomodoroTimerStoped value,
+          $Res Function(_$PomodoroTimerStoped) then) =
+      __$$PomodoroTimerStopedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PomodoroTimerStopedCopyWithImpl<$Res>
+    extends _$PomodoroEventCopyWithImpl<$Res>
+    implements _$$PomodoroTimerStopedCopyWith<$Res> {
+  __$$PomodoroTimerStopedCopyWithImpl(
+      _$PomodoroTimerStoped _value, $Res Function(_$PomodoroTimerStoped) _then)
+      : super(_value, (v) => _then(v as _$PomodoroTimerStoped));
+
+  @override
+  _$PomodoroTimerStoped get _value => super._value as _$PomodoroTimerStoped;
+}
+
+/// @nodoc
+
+class _$PomodoroTimerStoped
+    with DiagnosticableTreeMixin
+    implements PomodoroTimerStoped {
+  const _$PomodoroTimerStoped();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PomodoroEvent.stop()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'PomodoroEvent.stop'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PomodoroTimerStoped);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loding,
+    required TResult Function() loaded,
+    required TResult Function() stop,
+    required TResult Function() started,
+    required TResult Function(Duration decrementValue) decrement,
+    required TResult Function(Duration resetValue) resetPressed,
+    required TResult Function(Duration setValue) setTimerType,
+  }) {
+    return stop();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loding,
+    TResult Function()? loaded,
+    TResult Function()? stop,
+    TResult Function()? started,
+    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration resetValue)? resetPressed,
+    TResult Function(Duration setValue)? setTimerType,
+  }) {
+    return stop?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loding,
+    TResult Function()? loaded,
+    TResult Function()? stop,
+    TResult Function()? started,
+    TResult Function(Duration decrementValue)? decrement,
+    TResult Function(Duration resetValue)? resetPressed,
+    TResult Function(Duration setValue)? setTimerType,
+    required TResult orElse(),
+  }) {
+    if (stop != null) {
+      return stop();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PomodoroTimerLoading value) loding,
+    required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
+    required TResult Function(PomodoroTimerStarted value) started,
+    required TResult Function(PomodoroTimerDecrementPressed value) decrement,
+    required TResult Function(PomodoroTimerResetPressed value) resetPressed,
+    required TResult Function(TimerTypeChanged value) setTimerType,
+  }) {
+    return stop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PomodoroTimerLoading value)? loding,
+    TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
+    TResult Function(PomodoroTimerStarted value)? started,
+    TResult Function(PomodoroTimerDecrementPressed value)? decrement,
+    TResult Function(PomodoroTimerResetPressed value)? resetPressed,
+    TResult Function(TimerTypeChanged value)? setTimerType,
+  }) {
+    return stop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PomodoroTimerLoading value)? loding,
+    TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
+    TResult Function(PomodoroTimerStarted value)? started,
+    TResult Function(PomodoroTimerDecrementPressed value)? decrement,
+    TResult Function(PomodoroTimerResetPressed value)? resetPressed,
+    TResult Function(TimerTypeChanged value)? setTimerType,
+    required TResult orElse(),
+  }) {
+    if (stop != null) {
+      return stop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PomodoroTimerStoped implements PomodoroEvent {
+  const factory PomodoroTimerStoped() = _$PomodoroTimerStoped;
 }
 
 /// @nodoc
@@ -422,6 +583,7 @@ class _$PomodoroTimerStarted
   TResult when<TResult extends Object?>({
     required TResult Function() loding,
     required TResult Function() loaded,
+    required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
     required TResult Function(Duration resetValue) resetPressed,
@@ -435,6 +597,7 @@ class _$PomodoroTimerStarted
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -448,6 +611,7 @@ class _$PomodoroTimerStarted
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -465,6 +629,7 @@ class _$PomodoroTimerStarted
   TResult map<TResult extends Object?>({
     required TResult Function(PomodoroTimerLoading value) loding,
     required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
     required TResult Function(PomodoroTimerStarted value) started,
     required TResult Function(PomodoroTimerDecrementPressed value) decrement,
     required TResult Function(PomodoroTimerResetPressed value) resetPressed,
@@ -478,6 +643,7 @@ class _$PomodoroTimerStarted
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -491,6 +657,7 @@ class _$PomodoroTimerStarted
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -590,6 +757,7 @@ class _$PomodoroTimerDecrementPressed
   TResult when<TResult extends Object?>({
     required TResult Function() loding,
     required TResult Function() loaded,
+    required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
     required TResult Function(Duration resetValue) resetPressed,
@@ -603,6 +771,7 @@ class _$PomodoroTimerDecrementPressed
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -616,6 +785,7 @@ class _$PomodoroTimerDecrementPressed
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -633,6 +803,7 @@ class _$PomodoroTimerDecrementPressed
   TResult map<TResult extends Object?>({
     required TResult Function(PomodoroTimerLoading value) loding,
     required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
     required TResult Function(PomodoroTimerStarted value) started,
     required TResult Function(PomodoroTimerDecrementPressed value) decrement,
     required TResult Function(PomodoroTimerResetPressed value) resetPressed,
@@ -646,6 +817,7 @@ class _$PomodoroTimerDecrementPressed
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -659,6 +831,7 @@ class _$PomodoroTimerDecrementPressed
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -764,6 +937,7 @@ class _$PomodoroTimerResetPressed
   TResult when<TResult extends Object?>({
     required TResult Function() loding,
     required TResult Function() loaded,
+    required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
     required TResult Function(Duration resetValue) resetPressed,
@@ -777,6 +951,7 @@ class _$PomodoroTimerResetPressed
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -790,6 +965,7 @@ class _$PomodoroTimerResetPressed
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -807,6 +983,7 @@ class _$PomodoroTimerResetPressed
   TResult map<TResult extends Object?>({
     required TResult Function(PomodoroTimerLoading value) loding,
     required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
     required TResult Function(PomodoroTimerStarted value) started,
     required TResult Function(PomodoroTimerDecrementPressed value) decrement,
     required TResult Function(PomodoroTimerResetPressed value) resetPressed,
@@ -820,6 +997,7 @@ class _$PomodoroTimerResetPressed
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -833,6 +1011,7 @@ class _$PomodoroTimerResetPressed
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -933,6 +1112,7 @@ class _$TimerTypeChanged
   TResult when<TResult extends Object?>({
     required TResult Function() loding,
     required TResult Function() loaded,
+    required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
     required TResult Function(Duration resetValue) resetPressed,
@@ -946,6 +1126,7 @@ class _$TimerTypeChanged
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -959,6 +1140,7 @@ class _$TimerTypeChanged
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loding,
     TResult Function()? loaded,
+    TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
@@ -976,6 +1158,7 @@ class _$TimerTypeChanged
   TResult map<TResult extends Object?>({
     required TResult Function(PomodoroTimerLoading value) loding,
     required TResult Function(PomodoroTimerLoaded value) loaded,
+    required TResult Function(PomodoroTimerStoped value) stop,
     required TResult Function(PomodoroTimerStarted value) started,
     required TResult Function(PomodoroTimerDecrementPressed value) decrement,
     required TResult Function(PomodoroTimerResetPressed value) resetPressed,
@@ -989,6 +1172,7 @@ class _$TimerTypeChanged
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -1002,6 +1186,7 @@ class _$TimerTypeChanged
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PomodoroTimerLoading value)? loding,
     TResult Function(PomodoroTimerLoaded value)? loaded,
+    TResult Function(PomodoroTimerStoped value)? stop,
     TResult Function(PomodoroTimerStarted value)? started,
     TResult Function(PomodoroTimerDecrementPressed value)? decrement,
     TResult Function(PomodoroTimerResetPressed value)? resetPressed,
@@ -1033,6 +1218,7 @@ mixin _$PomodoroState {
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -1044,6 +1230,7 @@ mixin _$PomodoroState {
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1055,6 +1242,7 @@ mixin _$PomodoroState {
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1067,6 +1255,7 @@ mixin _$PomodoroState {
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -1078,6 +1267,7 @@ mixin _$PomodoroState {
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1089,6 +1279,7 @@ mixin _$PomodoroState {
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1194,6 +1385,7 @@ class _$_PomodoroInitial
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -1208,6 +1400,7 @@ class _$_PomodoroInitial
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1222,6 +1415,7 @@ class _$_PomodoroInitial
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1240,6 +1434,7 @@ class _$_PomodoroInitial
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -1254,6 +1449,7 @@ class _$_PomodoroInitial
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1268,6 +1464,7 @@ class _$_PomodoroInitial
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1343,6 +1540,7 @@ class _$_PomodoroLoading
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -1357,6 +1555,7 @@ class _$_PomodoroLoading
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1371,6 +1570,7 @@ class _$_PomodoroLoading
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1389,6 +1589,7 @@ class _$_PomodoroLoading
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -1403,6 +1604,7 @@ class _$_PomodoroLoading
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1417,6 +1619,7 @@ class _$_PomodoroLoading
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1513,6 +1716,7 @@ class _$_PomodoroLoaded
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -1527,6 +1731,7 @@ class _$_PomodoroLoaded
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1541,6 +1746,7 @@ class _$_PomodoroLoaded
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1559,6 +1765,7 @@ class _$_PomodoroLoaded
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -1573,6 +1780,7 @@ class _$_PomodoroLoaded
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1587,6 +1795,7 @@ class _$_PomodoroLoaded
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1662,6 +1871,7 @@ class _$_PomodoroTimerStart
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -1676,6 +1886,7 @@ class _$_PomodoroTimerStart
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1690,6 +1901,7 @@ class _$_PomodoroTimerStart
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1708,6 +1920,7 @@ class _$_PomodoroTimerStart
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -1722,6 +1935,7 @@ class _$_PomodoroTimerStart
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1736,6 +1950,7 @@ class _$_PomodoroTimerStart
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1750,6 +1965,188 @@ class _$_PomodoroTimerStart
 
 abstract class _PomodoroTimerStart implements PomodoroState {
   const factory _PomodoroTimerStart() = _$_PomodoroTimerStart;
+}
+
+/// @nodoc
+abstract class _$$_PomodoroTimerStopCopyWith<$Res> {
+  factory _$$_PomodoroTimerStopCopyWith(_$_PomodoroTimerStop value,
+          $Res Function(_$_PomodoroTimerStop) then) =
+      __$$_PomodoroTimerStopCopyWithImpl<$Res>;
+  $Res call({Duration timer});
+}
+
+/// @nodoc
+class __$$_PomodoroTimerStopCopyWithImpl<$Res>
+    extends _$PomodoroStateCopyWithImpl<$Res>
+    implements _$$_PomodoroTimerStopCopyWith<$Res> {
+  __$$_PomodoroTimerStopCopyWithImpl(
+      _$_PomodoroTimerStop _value, $Res Function(_$_PomodoroTimerStop) _then)
+      : super(_value, (v) => _then(v as _$_PomodoroTimerStop));
+
+  @override
+  _$_PomodoroTimerStop get _value => super._value as _$_PomodoroTimerStop;
+
+  @override
+  $Res call({
+    Object? timer = freezed,
+  }) {
+    return _then(_$_PomodoroTimerStop(
+      timer: timer == freezed
+          ? _value.timer
+          : timer // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PomodoroTimerStop
+    with DiagnosticableTreeMixin
+    implements _PomodoroTimerStop {
+  const _$_PomodoroTimerStop({required this.timer});
+
+  @override
+  final Duration timer;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PomodoroState.stop(timer: $timer)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PomodoroState.stop'))
+      ..add(DiagnosticsProperty('timer', timer));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PomodoroTimerStop &&
+            const DeepCollectionEquality().equals(other.timer, timer));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(timer));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PomodoroTimerStopCopyWith<_$_PomodoroTimerStop> get copyWith =>
+      __$$_PomodoroTimerStopCopyWithImpl<_$_PomodoroTimerStop>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Duration initialValue) initial,
+    required TResult Function() loading,
+    required TResult Function(Duration initialValue) loaded,
+    required TResult Function() started,
+    required TResult Function(Duration timer) stop,
+    required TResult Function(Duration currentDuration) decrement,
+    required TResult Function(Duration resetValue) resetPressed,
+    required TResult Function(Duration setValue) setTimerType,
+  }) {
+    return stop(timer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Duration initialValue)? initial,
+    TResult Function()? loading,
+    TResult Function(Duration initialValue)? loaded,
+    TResult Function()? started,
+    TResult Function(Duration timer)? stop,
+    TResult Function(Duration currentDuration)? decrement,
+    TResult Function(Duration resetValue)? resetPressed,
+    TResult Function(Duration setValue)? setTimerType,
+  }) {
+    return stop?.call(timer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Duration initialValue)? initial,
+    TResult Function()? loading,
+    TResult Function(Duration initialValue)? loaded,
+    TResult Function()? started,
+    TResult Function(Duration timer)? stop,
+    TResult Function(Duration currentDuration)? decrement,
+    TResult Function(Duration resetValue)? resetPressed,
+    TResult Function(Duration setValue)? setTimerType,
+    required TResult orElse(),
+  }) {
+    if (stop != null) {
+      return stop(timer);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PomodoroInitial value) initial,
+    required TResult Function(_PomodoroLoading value) loading,
+    required TResult Function(_PomodoroLoaded value) loaded,
+    required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
+    required TResult Function(_PomodoroTimerDecrement value) decrement,
+    required TResult Function(_PomodoroTimerReset value) resetPressed,
+    required TResult Function(_PomodoroTimerChange value) setTimerType,
+  }) {
+    return stop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PomodoroInitial value)? initial,
+    TResult Function(_PomodoroLoading value)? loading,
+    TResult Function(_PomodoroLoaded value)? loaded,
+    TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
+    TResult Function(_PomodoroTimerDecrement value)? decrement,
+    TResult Function(_PomodoroTimerReset value)? resetPressed,
+    TResult Function(_PomodoroTimerChange value)? setTimerType,
+  }) {
+    return stop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PomodoroInitial value)? initial,
+    TResult Function(_PomodoroLoading value)? loading,
+    TResult Function(_PomodoroLoaded value)? loaded,
+    TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
+    TResult Function(_PomodoroTimerDecrement value)? decrement,
+    TResult Function(_PomodoroTimerReset value)? resetPressed,
+    TResult Function(_PomodoroTimerChange value)? setTimerType,
+    required TResult orElse(),
+  }) {
+    if (stop != null) {
+      return stop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PomodoroTimerStop implements PomodoroState {
+  const factory _PomodoroTimerStop({required final Duration timer}) =
+      _$_PomodoroTimerStop;
+
+  Duration get timer => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_PomodoroTimerStopCopyWith<_$_PomodoroTimerStop> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1834,6 +2231,7 @@ class _$_PomodoroTimerDecrement
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -1848,6 +2246,7 @@ class _$_PomodoroTimerDecrement
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1862,6 +2261,7 @@ class _$_PomodoroTimerDecrement
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -1880,6 +2280,7 @@ class _$_PomodoroTimerDecrement
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -1894,6 +2295,7 @@ class _$_PomodoroTimerDecrement
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -1908,6 +2310,7 @@ class _$_PomodoroTimerDecrement
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -2011,6 +2414,7 @@ class _$_PomodoroTimerReset
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -2025,6 +2429,7 @@ class _$_PomodoroTimerReset
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -2039,6 +2444,7 @@ class _$_PomodoroTimerReset
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -2057,6 +2463,7 @@ class _$_PomodoroTimerReset
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -2071,6 +2478,7 @@ class _$_PomodoroTimerReset
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -2085,6 +2493,7 @@ class _$_PomodoroTimerReset
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -2187,6 +2596,7 @@ class _$_PomodoroTimerChange
     required TResult Function() loading,
     required TResult Function(Duration initialValue) loaded,
     required TResult Function() started,
+    required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
     required TResult Function(Duration resetValue) resetPressed,
     required TResult Function(Duration setValue) setTimerType,
@@ -2201,6 +2611,7 @@ class _$_PomodoroTimerChange
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -2215,6 +2626,7 @@ class _$_PomodoroTimerChange
     TResult Function()? loading,
     TResult Function(Duration initialValue)? loaded,
     TResult Function()? started,
+    TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
     TResult Function(Duration resetValue)? resetPressed,
     TResult Function(Duration setValue)? setTimerType,
@@ -2233,6 +2645,7 @@ class _$_PomodoroTimerChange
     required TResult Function(_PomodoroLoading value) loading,
     required TResult Function(_PomodoroLoaded value) loaded,
     required TResult Function(_PomodoroTimerStart value) started,
+    required TResult Function(_PomodoroTimerStop value) stop,
     required TResult Function(_PomodoroTimerDecrement value) decrement,
     required TResult Function(_PomodoroTimerReset value) resetPressed,
     required TResult Function(_PomodoroTimerChange value) setTimerType,
@@ -2247,6 +2660,7 @@ class _$_PomodoroTimerChange
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,
@@ -2261,6 +2675,7 @@ class _$_PomodoroTimerChange
     TResult Function(_PomodoroLoading value)? loading,
     TResult Function(_PomodoroLoaded value)? loaded,
     TResult Function(_PomodoroTimerStart value)? started,
+    TResult Function(_PomodoroTimerStop value)? stop,
     TResult Function(_PomodoroTimerDecrement value)? decrement,
     TResult Function(_PomodoroTimerReset value)? resetPressed,
     TResult Function(_PomodoroTimerChange value)? setTimerType,

@@ -4,7 +4,7 @@ part of 'pomodoro_bloc.dart';
 class PomodoroEvent with _$PomodoroEvent {
   const factory PomodoroEvent.loding() = PomodoroTimerLoading;
   const factory PomodoroEvent.loaded() = PomodoroTimerLoaded;
-
+  const factory PomodoroEvent.stop() = PomodoroTimerStoped;
   const factory PomodoroEvent.started() = PomodoroTimerStarted;
   const factory PomodoroEvent.decrement({required Duration decrementValue}) =
       PomodoroTimerDecrementPressed;

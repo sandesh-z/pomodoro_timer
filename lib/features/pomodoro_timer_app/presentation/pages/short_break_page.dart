@@ -32,6 +32,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                 loading: (s1) {},
                 loaded: (s1) {},
                 started: (s1) {},
+                stop: (s) {},
                 decrement: (s1) {},
                 resetPressed: (s1) {},
                 setTimerType: (s1) {},
@@ -46,12 +47,13 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                   loaded: (loaded1) => 'Loaded',
                   // loaded.initialValue.toString(),
                   started: (started) => 'Started',
+                  stop: (s) => parseDuration(s.timer),
                   decrement: (value1) => parseDuration(value1.currentDuration),
                   resetPressed: (value) => parseDuration(value.resetValue),
                   setTimerType: (value1) => parseDuration(value1.setValue),
                 ),
                 style: const TextStyle(
-                  fontSize: 75,
+                  fontSize: 80,
                   fontWeight: FontWeight.bold,
                 ),
               );
@@ -74,9 +76,8 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                             setState(() {
                               isStartedShortBreak = false;
                             });
-                            BlocProvider.of<PomodoroBloc>(context).add(
-                                const PomodoroEvent.resetPressed(
-                                    resetValue: Duration(minutes: 5)));
+                            BlocProvider.of<PomodoroBloc>(context)
+                                .add(const PomodoroEvent.stop());
                           },
                           child: const Text(
                             'STOP',

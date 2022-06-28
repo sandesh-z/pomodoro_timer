@@ -45,113 +45,126 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: _color,
-      body: Column(
-        children: [
-          const SizedBox(height: 50),
-          Card(
-            color: _color,
-            child: TabBar(
-              controller: tabController,
-              onTap: (id) {
-                if (id == 0) {
-                  setState(() {
-                    _color = pomodoroColor;
-                  });
-                  BlocProvider.of<PomodoroBloc>(context).add(
-                      const PomodoroEvent.resetPressed(
-                          resetValue: Duration(minutes: 25)));
-                }
-                if (id == 1) {
-                  setState(() {
-                    _color = shortBreakColor;
-                  });
-                  BlocProvider.of<PomodoroBloc>(context).add(
-                      const PomodoroEvent.resetPressed(
-                          resetValue: Duration(minutes: 5)));
-                }
-                if (id == 2) {
-                  setState(() {
-                    _color = longBreakColor;
-                  });
-                  BlocProvider.of<PomodoroBloc>(context).add(
-                      const PomodoroEvent.resetPressed(
-                          resetValue: Duration(minutes: 10)));
-                }
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: _color,
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            margin: const EdgeInsets.only(top: 30),
+            height: 269,
+            // padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white.withOpacity(0.1),
+            ),
 
-                tabController?.animateTo(id, curve: Curves.linear);
-              },
-              physics: const NeverScrollableScrollPhysics(),
-              indicatorColor: Colors.transparent,
-              tabs: const [
-                Tab(
-                  child: Text(
-                    'Pomodoro',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'ArialRounded',
-                    ),
-                  ),
-                ),
-                Tab(
-                  child: Text(
-                    'Short Break',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'ArialRounded',
-                    ),
-                  ),
-                ),
-                Tab(
-                  child: Text(
-                    'Long Break',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'ArialRounded',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: TabBarView(
-              controller: tabController,
-              physics: const NeverScrollableScrollPhysics(),
-              // physics: ,
+            child: Column(
               children: [
-                PomodoroTimerPage(onNextPressed: () {
-                  setState(() {
-                    tabController?.index = 1;
-                    BlocProvider.of<PomodoroBloc>(context).add(
-                        const PomodoroEvent.resetPressed(
-                            resetValue: Duration(minutes: 5)));
-                    _color = shortBreakColor;
-                  });
-                }),
-                ShortBreakPage(onNextPressed: () {
-                  setState(() {
-                    tabController?.index = 0;
-                    BlocProvider.of<PomodoroBloc>(context).add(
-                        const PomodoroEvent.resetPressed(
-                            resetValue: Duration(minutes: 25)));
-                    _color = pomodoroColor;
-                  });
-                }),
-                LongBreakPage(onNextPressed: () {
-                  setState(() {
-                    tabController?.index = 0;
-                    BlocProvider.of<PomodoroBloc>(context).add(
-                        const PomodoroEvent.resetPressed(
-                            resetValue: Duration(minutes: 25)));
-                    _color = pomodoroColor;
-                  });
-                }),
+                const SizedBox(height: 10),
+                Card(
+                  color: _color,
+                  child: TabBar(
+                    controller: tabController,
+                    onTap: (id) {
+                      if (id == 0) {
+                        setState(() {
+                          _color = pomodoroColor;
+                        });
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.resetPressed(
+                                resetValue: Duration(minutes: 25)));
+                      }
+                      if (id == 1) {
+                        setState(() {
+                          _color = shortBreakColor;
+                        });
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.resetPressed(
+                                resetValue: Duration(minutes: 5)));
+                      }
+                      if (id == 2) {
+                        setState(() {
+                          _color = longBreakColor;
+                        });
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.resetPressed(
+                                resetValue: Duration(minutes: 10)));
+                      }
+                    },
+                    physics: const NeverScrollableScrollPhysics(),
+                    indicatorColor: Colors.transparent,
+                    tabs: const [
+                      Tab(
+                        child: Text(
+                          'Pomodoro',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'ArialRounded',
+                          ),
+                        ),
+                      ),
+                      Tab(
+                        child: Text(
+                          'Short Break',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'ArialRounded',
+                          ),
+                        ),
+                      ),
+                      Tab(
+                        child: Text(
+                          'Long Break',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'ArialRounded',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: TabBarView(
+                    controller: tabController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    // physics: ,
+                    children: [
+                      PomodoroTimerPage(onNextPressed: () {
+                        setState(() {
+                          tabController?.index = 1;
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.resetPressed(
+                                  resetValue: Duration(minutes: 5)));
+                          _color = shortBreakColor;
+                        });
+                      }),
+                      ShortBreakPage(onNextPressed: () {
+                        setState(() {
+                          tabController?.index = 0;
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.resetPressed(
+                                  resetValue: Duration(minutes: 25)));
+                          _color = pomodoroColor;
+                        });
+                      }),
+                      LongBreakPage(onNextPressed: () {
+                        setState(() {
+                          tabController?.index = 0;
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.resetPressed(
+                                  resetValue: Duration(minutes: 25)));
+                          _color = pomodoroColor;
+                        });
+                      }),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

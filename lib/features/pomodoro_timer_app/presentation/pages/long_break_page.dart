@@ -33,6 +33,7 @@ class _LongBreakPageState extends State<LongBreakPage> {
                 loading: (s) {},
                 loaded: (s) {},
                 started: (s) {},
+                stop: (s) {},
                 decrement: (s) {},
                 resetPressed: (s) {},
                 setTimerType: (s) {},
@@ -51,13 +52,14 @@ class _LongBreakPageState extends State<LongBreakPage> {
                   loading: (s) => 'Loading',
                   loaded: (loaded) => loaded.initialValue.toString(),
                   started: (started) => 'Started',
+                  stop: (s) => parseDuration(s.timer),
                   decrement: (value) => parseDuration(value.currentDuration),
                   resetPressed: (value) => parseDuration(value.resetValue),
                   setTimerType: (value) => parseDuration(value.setValue),
                 ),
                 // '$minutes:$seconds',
                 style: const TextStyle(
-                  fontSize: 75,
+                  fontSize: 80,
                   fontWeight: FontWeight.bold,
                 ),
               );
@@ -80,9 +82,8 @@ class _LongBreakPageState extends State<LongBreakPage> {
                             setState(() {
                               isStartedLongBreak = false;
                             });
-                            BlocProvider.of<PomodoroBloc>(context).add(
-                                const PomodoroEvent.resetPressed(
-                                    resetValue: Duration(minutes: 10)));
+                            BlocProvider.of<PomodoroBloc>(context)
+                                .add(const PomodoroEvent.stop());
                           },
                           child: const Text(
                             'STOP',

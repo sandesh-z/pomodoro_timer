@@ -34,6 +34,7 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                 loading: (s) {},
                 loaded: (s) {},
                 started: (s) {},
+                stop: (s) {},
                 decrement: (s) {},
                 resetPressed: (s) {},
                 setTimerType: (s) {},
@@ -52,13 +53,14 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                   loading: (s) => 'Loading',
                   loaded: (loaded) => loaded.initialValue.toString(),
                   started: (started) => 'Started',
+                  stop: (s) => parseDuration(s.timer),
                   decrement: (value) => parseDuration(value.currentDuration),
                   resetPressed: (value) => parseDuration(value.resetValue),
                   setTimerType: (value) => parseDuration(value.setValue),
                 ),
                 // '$minutes:$seconds',
                 style: const TextStyle(
-                  fontSize: 75,
+                  fontSize: 80,
                   fontWeight: FontWeight.bold,
                 ),
               );
@@ -85,9 +87,8 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                             setState(() {
                               isStartedPomodoro = false;
                             });
-                            BlocProvider.of<PomodoroBloc>(context).add(
-                                const PomodoroEvent.resetPressed(
-                                    resetValue: Duration(minutes: 25)));
+                            BlocProvider.of<PomodoroBloc>(context)
+                                .add(const PomodoroEvent.stop());
                           },
                           child: Text(
                             'STOP',

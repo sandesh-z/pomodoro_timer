@@ -29,4 +29,9 @@ class TimerDataSourceImpl implements TimerDataSource {
   setTimerType(Duration setValue) {
     duration = Duration(minutes: setValue.inMinutes);
   }
+
+  @override
+  Duration stopTimer() {
+    return duration;
+  }
 }
