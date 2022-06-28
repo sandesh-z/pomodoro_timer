@@ -1,9 +1,10 @@
 import 'dart:async';
-
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/themes/my_globals.dart';
 import '../../domain/repositories/pomodoro_timer.dart';
 
 part 'pomodoro_event.dart';
@@ -13,6 +14,7 @@ part 'pomodoro_bloc.freezed.dart';
 class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
   PomodoroTimerRepository pomodoroTimerRepository;
+
   PomodoroBloc(this.pomodoroTimerRepository)
       : super(const PomodoroState.initial(
             initialValue: Duration(minutes: 25, seconds: 0))) {
@@ -20,11 +22,19 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
         (PomodoroTimerDecrementPressed event, Emitter<PomodoroState> emit) {
       timer?.cancel();
       timer = null;
-      if (pomodoroTimerRepository.getTimer().inSeconds == 0) {
-        timer!.cancel();
-      }
-      pomodoroTimerRepository.subtractTimer(event.decrementValue);
 
+      if (pomodoroTimerRepository.getTimer().inSeconds == 0) {
+        timer?.cancel();
+        timer = null;
+        final player = AudioPlayer();
+        player.play(AssetSource("alarm.wav"));
+        timerIsZero = true;
+        emit(const PomodoroState.loading());
+
+        return;
+      }
+
+      pomodoroTimerRepository.subtractTimer(event.decrementValue);
       emit(PomodoroState.decrement(
           currentDuration: pomodoroTimerRepository.getTimer()));
       timer = Timer.periodic(const Duration(seconds: 1), (timer) {

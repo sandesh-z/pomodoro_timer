@@ -13,13 +13,6 @@ class ShortBreakPage extends StatefulWidget {
 }
 
 class _ShortBreakPageState extends State<ShortBreakPage> {
-  bool isStartedShortBreak = false;
-  String parseDuration(Duration duration) {
-    var seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
-    var minutes = (duration.inMinutes % 60).toString().padLeft(2, '0');
-    return "$minutes:$seconds";
-  }
-
   _showMyDialog() {
     return showDialog<void>(
       context: context,
@@ -94,7 +87,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                 state.map(
                   initial: (value1) => '05:00',
 
-                  loading: (s1) => 'Loading',
+                  loading: (s1) => '05:00',
                   loaded: (loaded1) => 'Loaded',
                   // loaded.initialValue.toString(),
                   started: (started) => 'Started',
@@ -168,7 +161,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       if (shortBreakStartPressed) {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                setValue: Duration(minutes: 5)));
+                                setValue: Duration(seconds: 5)));
                         setState(() {
                           shortBreakStartPressed = false;
                         });

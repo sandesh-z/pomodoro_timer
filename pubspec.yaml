@@ -38,6 +38,8 @@ dependencies:
   injectable: ^1.5.3
   get_it: ^7.2.0
   injectable_generator: ^1.5.3
+  flutter_beep: ^1.0.0
+  audioplayers: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,7 @@ flutter:
 
   assets:
     - assets/fonts/
+    - assets/
   fonts:
     - family: AirialRounded
       fonts:

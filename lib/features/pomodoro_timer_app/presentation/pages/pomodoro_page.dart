@@ -15,12 +15,6 @@ class PomodoroTimerPage extends StatefulWidget {
 
 class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
   bool pomodoroStartPressed = true;
-  bool isStartedPomodoro = false;
-  String parseDuration(Duration duration) {
-    var seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
-    var minutes = (duration.inMinutes % 60).toString().padLeft(2, '0');
-    return "$minutes:$seconds";
-  }
 
   _showMyDialog() {
     return showDialog<void>(
@@ -104,7 +98,7 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
               return Text(
                 state.map(
                   initial: (value) => '25:00',
-                  loading: (s) => 'Loading',
+                  loading: (s) => '25:00',
                   loaded: (loaded) => loaded.initialValue.toString(),
                   started: (started) => 'Started',
                   stop: (s) => parseDuration(s.timer),

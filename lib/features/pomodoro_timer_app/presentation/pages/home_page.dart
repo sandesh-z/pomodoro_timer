@@ -23,12 +23,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Color _color = pomodoroColor;
 
-  String parseDuration(Duration duration) {
-    var seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
-    var minutes = (duration.inMinutes % 60).toString().padLeft(2, '0');
-    return "$minutes:$seconds";
-  }
-
   @override
   void initState() {
     super.initState();
@@ -64,6 +58,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   color: _color,
                   child: TabBar(
                     controller: tabController,
+                    padding: EdgeInsets.zero,
+                    labelPadding: EdgeInsets.zero,
                     onTap: (id) {
                       if (id == 0) {
                         setState(() {

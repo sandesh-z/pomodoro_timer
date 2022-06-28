@@ -13,14 +13,6 @@ class LongBreakPage extends StatefulWidget {
 }
 
 class _LongBreakPageState extends State<LongBreakPage> {
-  bool isStartedLongBreak = false;
-
-  String parseDuration(Duration duration) {
-    var seconds = (duration.inSeconds % 60).toString().padLeft(2, '0');
-    var minutes = (duration.inMinutes % 60).toString().padLeft(2, '0');
-    return "$minutes:$seconds";
-  }
-
   _showMyDialog() {
     return showDialog<void>(
       context: context,
@@ -98,7 +90,7 @@ class _LongBreakPageState extends State<LongBreakPage> {
               return Text(
                 state.map(
                   initial: (value) => '10:00',
-                  loading: (s) => 'Loading',
+                  loading: (s) => '10:00',
                   loaded: (loaded) => loaded.initialValue.toString(),
                   started: (started) => 'Started',
                   stop: (s) => parseDuration(s.timer),

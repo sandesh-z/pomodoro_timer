@@ -17,7 +17,7 @@ class TimerDataSourceImpl implements TimerDataSource {
 
   @override
   resetTimer(Duration resetValue) {
-    duration = Duration(minutes: resetValue.inMinutes);
+    duration = Duration(seconds: resetValue.inSeconds);
   }
 
   @override
@@ -27,7 +27,7 @@ class TimerDataSourceImpl implements TimerDataSource {
 
   @override
   setTimerType(Duration setValue) {
-    duration = Duration(minutes: setValue.inMinutes);
+    duration = Duration(seconds: setValue.inSeconds);
   }
 
   @override
