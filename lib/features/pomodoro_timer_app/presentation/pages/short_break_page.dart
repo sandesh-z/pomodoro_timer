@@ -13,6 +13,7 @@ class ShortBreakPage extends StatefulWidget {
 }
 
 class _ShortBreakPageState extends State<ShortBreakPage> {
+  bool shortBreakStartPressed = true;
   _showMyDialog() {
     return showDialog<void>(
       context: context,
@@ -77,7 +78,10 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                 loaded: (s1) {},
                 started: (s1) {},
                 stop: (s) {},
-                decrement: (s1) {},
+                decrement: (s1) {
+                  state.whenOrNull(
+                      setTimerType: (setValue) => Duration(minutes: 5));
+                },
                 resetPressed: (s1) {},
                 setTimerType: (s1) {},
               );
@@ -161,7 +165,9 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       if (shortBreakStartPressed) {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                setValue: Duration(seconds: 5)));
+                                setValue: Duration(minutes: 5),
+                                timerType: TimerType.SHORT_BREAK));
+
                         setState(() {
                           shortBreakStartPressed = false;
                         });
@@ -170,6 +176,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       BlocProvider.of<PomodoroBloc>(context).add(
                           const PomodoroEvent.decrement(
                               decrementValue: Duration(seconds: 1)));
+
                       // isStartedShortBreak = true;
                     },
                     child: Text(

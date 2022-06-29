@@ -167,7 +167,8 @@ class _LongBreakPageState extends State<LongBreakPage> {
                       if (longBreakStartPressed) {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                setValue: Duration(minutes: 10)));
+                                setValue: Duration(minutes: 10),
+                                timerType: TimerType.LONG_BREAK));
                         setState(() {
                           longBreakStartPressed = false;
                         });

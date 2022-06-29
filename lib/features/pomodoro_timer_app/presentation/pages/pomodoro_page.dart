@@ -177,7 +177,8 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                       if (pomodoroStartPressed) {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                setValue: Duration(minutes: 25)));
+                                setValue: Duration(minutes: 25),
+                                timerType: TimerType.POMODORO));
                         setState(() {
                           pomodoroStartPressed = false;
                         });

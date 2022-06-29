@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   bool isStartedPomodoro = false;
   bool isStartedShortBreak = false;
   bool isStartedLongBreak = false;
+
   TabController? tabController;
 
   Color _color = pomodoroColor;
@@ -27,6 +28,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     tabController = TabController(length: 3, vsync: this);
+    // if (timerIsZero) {
+    //   setState(() {
+    //     tabController?.index = 0;
+    //   });
+    // }
   }
 
   @override

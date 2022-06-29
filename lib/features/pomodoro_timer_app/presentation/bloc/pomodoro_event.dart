@@ -10,6 +10,7 @@ class PomodoroEvent with _$PomodoroEvent {
       PomodoroTimerDecrementPressed;
   const factory PomodoroEvent.resetPressed({required Duration resetValue}) =
       PomodoroTimerResetPressed;
-  const factory PomodoroEvent.setTimerType({required Duration setValue}) =
-      TimerTypeChanged;
+  const factory PomodoroEvent.setTimerType(
+      {required Duration setValue,
+      required TimerType timerType}) = TimerTypeChanged;
 }

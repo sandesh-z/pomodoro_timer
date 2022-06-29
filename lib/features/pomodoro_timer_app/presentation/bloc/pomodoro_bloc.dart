@@ -13,6 +13,7 @@ part 'pomodoro_bloc.freezed.dart';
 
 class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
+  TimerType currentTimerType = TimerType.POMODORO;
   PomodoroTimerRepository pomodoroTimerRepository;
 
   PomodoroBloc(this.pomodoroTimerRepository)
@@ -26,9 +27,18 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
       if (pomodoroTimerRepository.getTimer().inSeconds == 0) {
         timer?.cancel();
         timer = null;
+        // timerIsZero = true;
         final player = AudioPlayer();
         player.play(AssetSource("alarm.wav"));
-        timerIsZero = true;
+        if (TimerType == TimerType.LONG_BREAK) {
+          pomodoroTimerRepository.resetTimer(Duration(minutes: 10));
+        } else if (TimerType == TimerType.POMODORO) {
+          pomodoroTimerRepository.resetTimer(Duration(minutes: 25));
+        } else {
+          pomodoroTimerRepository.resetTimer(Duration(minutes: 5));
+        }
+        // PomodoroState.timerIsZero(timerIsZero: true);
+        // PomodoroState.resetPressed(resetValue: event.)
         emit(const PomodoroState.loading());
 
         return;
@@ -67,4 +77,10 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
       emit(PomodoroState.stop(timer: pomodoroTimerRepository.getTimer()));
     });
   }
+}
+
+enum TimerType {
+  POMODORO,
+  SHORT_BREAK,
+  LONG_BREAK,
 }
