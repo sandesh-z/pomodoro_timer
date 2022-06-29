@@ -165,11 +165,14 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                       if (shortBreakStartPressed) {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                setValue: Duration(minutes: 5),
+                                setValue: Duration(seconds: 5),
                                 timerType: TimerType.SHORT_BREAK));
 
                         setState(() {
                           shortBreakStartPressed = false;
+                          if (TimerType.SHORT_BREAK == null) {
+                            shortBreakStartPressed = true;
+                          }
                         });
                       }
 
