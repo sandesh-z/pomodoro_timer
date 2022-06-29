@@ -65,7 +65,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   child: TabBar(
                     controller: tabController,
                     padding: EdgeInsets.zero,
-                    labelPadding: EdgeInsets.zero,
+                    // labelPadding: EdgeInsets.zero,
+                    isScrollable: true,
                     onTap: (id) {
                       if (id == 0) {
                         setState(() {
