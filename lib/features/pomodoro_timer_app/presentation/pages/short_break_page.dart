@@ -13,7 +13,7 @@ class ShortBreakPage extends StatefulWidget {
 }
 
 class _ShortBreakPageState extends State<ShortBreakPage> {
-  bool shortBreakStartPressed = true;
+  // bool shortBreakStartPressed = true;
   _showMyDialog() {
     return showDialog<void>(
       context: context,
@@ -78,10 +78,7 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                 loaded: (s1) {},
                 started: (s1) {},
                 stop: (s) {},
-                decrement: (s1) {
-                  state.whenOrNull(
-                      setTimerType: (setValue) => Duration(minutes: 5));
-                },
+                decrement: (s1) {},
                 resetPressed: (s1) {},
                 setTimerType: (s1) {},
               );
@@ -97,8 +94,8 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
                   started: (started) => 'Started',
                   stop: (s) => parseDuration(s.timer),
                   decrement: (value1) => parseDuration(value1.currentDuration),
-                  resetPressed: (value) => parseDuration(value.resetValue),
-                  setTimerType: (value1) => parseDuration(value1.setValue),
+                  resetPressed: (value) => parseDuration(value.currentTime),
+                  setTimerType: (value1) => value1.setTimerType.toString(),
                 ),
                 style: const TextStyle(
                   fontSize: 80,
@@ -107,87 +104,308 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
               );
             },
           ),
-          isStartedShortBreak
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(child: SizedBox()),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
-                      ),
-                      height: 55,
-                      width: 200,
-                      child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              isStartedShortBreak = false;
-                            });
-                            BlocProvider.of<PomodoroBloc>(context)
-                                .add(const PomodoroEvent.stop());
-                          },
-                          child: const Text(
-                            'STOP',
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Color.fromRGBO(76, 145, 149, 0.9)),
-                          )),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: IconButton(
+          BlocBuilder<PomodoroBloc, PomodoroState>(
+            builder: (context, state) {
+              return state.map(
+                decrement: (value) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(child: SizedBox()),
+                      Container(
+                        // alignment: Alignment.center,
+                        // padding: const EdgeInsets.only(left: 50),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        height: 55,
+                        width: 200,
+                        child: TextButton(
                             onPressed: () {
                               BlocProvider.of<PomodoroBloc>(context)
                                   .add(const PomodoroEvent.stop());
-                              _showMyDialog();
                             },
-                            icon: const Icon(Icons.skip_next,
-                                color: Colors.white, size: 35)),
+                            child: Text(
+                              'STOP',
+                              style: TextStyle(
+                                  fontSize: 22, color: shortBreakColor),
+                            )),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                              color: shortBreakColor,
+                              onPressed: () {
+                                _showMyDialog();
+                                BlocProvider.of<PomodoroBloc>(context)
+                                    .add(const PomodoroEvent.stop());
+                              },
+                              icon: const Icon(
+                                Icons.skip_next,
+                                color: Colors.white,
+                                size: 35,
+                              )),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+                setTimerType: (_) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(child: SizedBox()),
+                      Container(
+                        // alignment: Alignment.center,
+                        // padding: const EdgeInsets.only(left: 50),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        height: 55,
+                        width: 200,
+                        child: TextButton(
+                            onPressed: () {
+                              BlocProvider.of<PomodoroBloc>(context)
+                                  .add(const PomodoroEvent.stop());
+                            },
+                            child: Text(
+                              'STOP',
+                              style: TextStyle(
+                                  fontSize: 22, color: shortBreakColor),
+                            )),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                              color: shortBreakColor,
+                              onPressed: () {
+                                _showMyDialog();
+                                BlocProvider.of<PomodoroBloc>(context)
+                                    .add(const PomodoroEvent.stop());
+                              },
+                              icon: const Icon(
+                                Icons.skip_next,
+                                color: Colors.white,
+                                size: 35,
+                              )),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+                started: (_) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(child: SizedBox()),
+                      Container(
+                        // alignment: Alignment.center,
+                        // padding: const EdgeInsets.only(left: 50),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        height: 55,
+                        width: 200,
+                        child: TextButton(
+                            onPressed: () {
+                              BlocProvider.of<PomodoroBloc>(context)
+                                  .add(const PomodoroEvent.stop());
+                            },
+                            child: Text(
+                              'STOP',
+                              style: TextStyle(
+                                  fontSize: 22, color: shortBreakColor),
+                            )),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                              color: shortBreakColor,
+                              onPressed: () {
+                                _showMyDialog();
+                                BlocProvider.of<PomodoroBloc>(context)
+                                    .add(const PomodoroEvent.stop());
+                              },
+                              icon: const Icon(
+                                Icons.skip_next,
+                                color: Colors.white,
+                                size: 35,
+                              )),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+                loading: (_) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                    ),
+                    height: 55,
+                    width: 200,
+                    child: TextButton(
+                      onPressed: () {
+                        if (pomodoroStartPressed) {
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.POMODORO));
+                          setState(() {
+                            pomodoroStartPressed = false;
+                          });
+                        }
+
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.decrement(
+                                decrementValue: Duration(seconds: 1)));
+                        // isStartedShortBreak = true;
+                      },
+                      child: Text(
+                        'START',
+                        style: TextStyle(fontSize: 22, color: shortBreakColor),
                       ),
                     ),
-                  ],
-                )
-              : Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                  ),
-                  height: 55,
-                  width: 200,
-                  child: TextButton(
-                    onPressed: () {
-                      setState(() {
-                        isStartedShortBreak = true;
-                      });
-                      if (shortBreakStartPressed) {
-                        BlocProvider.of<PomodoroBloc>(context).add(
-                            const PomodoroEvent.setTimerType(
-                                setValue: Duration(seconds: 5),
-                                timerType: TimerType.SHORT_BREAK));
-
-                        setState(() {
-                          shortBreakStartPressed = false;
-                          if (TimerType.SHORT_BREAK == null) {
-                            shortBreakStartPressed = true;
-                          }
-                        });
-                      }
-
-                      BlocProvider.of<PomodoroBloc>(context).add(
-                          const PomodoroEvent.decrement(
-                              decrementValue: Duration(seconds: 1)));
-
-                      // isStartedShortBreak = true;
-                    },
-                    child: Text(
-                      'START',
-                      style: TextStyle(fontSize: 22, color: shortBreakColor),
+                  );
+                },
+                loaded: (_) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
                     ),
-                  ),
-                ),
+                    height: 55,
+                    width: 200,
+                    child: TextButton(
+                      onPressed: () {
+                        setState(() {
+                          isStartedPomodoro = true;
+                        });
+                        if (pomodoroStartPressed) {
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.POMODORO));
+                          setState(() {
+                            pomodoroStartPressed = false;
+                          });
+                        }
+
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.decrement(
+                                decrementValue: Duration(seconds: 1)));
+                        // isStartedShortBreak = true;
+                      },
+                      child: Text(
+                        'START',
+                        style: TextStyle(fontSize: 22, color: shortBreakColor),
+                      ),
+                    ),
+                  );
+                },
+                resetPressed: (_) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                    ),
+                    height: 55,
+                    width: 200,
+                    child: TextButton(
+                      onPressed: () {
+                        if (pomodoroStartPressed) {
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.POMODORO));
+                          setState(() {
+                            pomodoroStartPressed = false;
+                          });
+                        }
+
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.decrement(
+                                decrementValue: Duration(seconds: 1)));
+                        // isStartedShortBreak = true;
+                      },
+                      child: Text(
+                        'START',
+                        style: TextStyle(fontSize: 22, color: shortBreakColor),
+                      ),
+                    ),
+                  );
+                },
+                stop: (_) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                    ),
+                    height: 55,
+                    width: 200,
+                    child: TextButton(
+                      onPressed: () {
+                        if (pomodoroStartPressed) {
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.POMODORO));
+                          setState(() {
+                            pomodoroStartPressed = false;
+                          });
+                        }
+
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.decrement(
+                                decrementValue: Duration(seconds: 1)));
+                        // isStartedShortBreak = true;
+                      },
+                      child: Text(
+                        'START',
+                        style: TextStyle(fontSize: 22, color: shortBreakColor),
+                      ),
+                    ),
+                  );
+                },
+                initial: (_) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                    ),
+                    height: 55,
+                    width: 200,
+                    child: TextButton(
+                      onPressed: () {
+                        if (pomodoroStartPressed) {
+                          BlocProvider.of<PomodoroBloc>(context).add(
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.POMODORO));
+                          setState(() {
+                            pomodoroStartPressed = false;
+                          });
+                        }
+
+                        BlocProvider.of<PomodoroBloc>(context).add(
+                            const PomodoroEvent.decrement(
+                                decrementValue: Duration(seconds: 1)));
+                        // isStartedShortBreak = true;
+                      },
+                      child: Text(
+                        'START',
+                        style: TextStyle(fontSize: 22, color: shortBreakColor),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          )
         ],
       ),
     );

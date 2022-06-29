@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/data_sources/timer.dart';
+import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
 
 import '../../domain/repositories/pomodoro_timer.dart';
 
@@ -15,8 +16,8 @@ class PomodoroTimerRepositoryImpl implements PomodoroTimerRepository {
   }
 
   @override
-  resetTimer(Duration resetValue) {
-    timerDataSource.resetTimer(resetValue);
+  resetTimer(TimerType timerType) {
+    timerDataSource.resetTimer(timerType);
   }
 
   @override
@@ -25,8 +26,8 @@ class PomodoroTimerRepositoryImpl implements PomodoroTimerRepository {
   }
 
   @override
-  setTimerType(Duration setValue) {
-    timerDataSource.setTimerType(setValue);
+  setTimerType(TimerType setTimerType) {
+    timerDataSource.setTimerType(setTimerType);
   }
 
   @override

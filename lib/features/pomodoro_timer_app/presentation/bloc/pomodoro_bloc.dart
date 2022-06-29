@@ -30,13 +30,7 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
         // timerIsZero = true;
         final player = AudioPlayer();
         player.play(AssetSource("alarm.wav"));
-        if (TimerType == TimerType.LONG_BREAK) {
-          pomodoroTimerRepository.resetTimer(Duration(minutes: 10));
-        } else if (TimerType == TimerType.POMODORO) {
-          pomodoroTimerRepository.resetTimer(Duration(minutes: 25));
-        } else {
-          pomodoroTimerRepository.resetTimer(Duration(minutes: 5));
-        }
+        pomodoroTimerRepository.resetTimer(currentTimerType);
         // PomodoroState.timerIsZero(timerIsZero: true);
         // PomodoroState.resetPressed(resetValue: event.)
         emit(const PomodoroState.loading());
@@ -59,15 +53,20 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
     });
 
     on<TimerTypeChanged>((TimerTypeChanged event, Emitter<PomodoroState> emit) {
-      pomodoroTimerRepository.setTimerType(event.setValue);
-      emit(PomodoroState.setTimerType(setValue: event.setValue));
+      pomodoroTimerRepository.setTimerType(event.timerType);
+
+      this.currentTimerType = event.timerType;
+      // add(PomodoroEvent.resetPressed());
+      emit(PomodoroState.resetPressed(
+          currentTime: pomodoroTimerRepository.getTimer()));
     });
 
     on<PomodoroTimerResetPressed>(
         (PomodoroTimerResetPressed event, Emitter<PomodoroState> emit) {
       timer?.cancel();
-      pomodoroTimerRepository.resetTimer(event.resetValue);
-      emit(PomodoroState.resetPressed(resetValue: event.resetValue));
+      pomodoroTimerRepository.resetTimer(currentTimerType);
+      emit(PomodoroState.resetPressed(
+          currentTime: pomodoroTimerRepository.getTimer()));
     });
 
     on<PomodoroTimerStoped>(

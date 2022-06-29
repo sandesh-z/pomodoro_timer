@@ -7,7 +7,7 @@ bool timerIsZero = false;
 bool buttonPressed = false;
 
 bool pomodoroStartPressed = true;
-// bool shortBreakStartPressed = true;
+bool shortBreakStartPressed = true;
 bool longBreakStartPressed = true;
 
 bool isStartedShortBreak = false;

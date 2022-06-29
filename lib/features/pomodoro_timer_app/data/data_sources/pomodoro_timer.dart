@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/data/data_sources/timer.dart';
+import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
 
 @LazySingleton(as: TimerDataSource)
 class TimerDataSourceImpl implements TimerDataSource {
@@ -16,8 +17,16 @@ class TimerDataSourceImpl implements TimerDataSource {
   }
 
   @override
-  resetTimer(Duration resetValue) {
-    duration = Duration(seconds: resetValue.inSeconds);
+  resetTimer(TimerType timerType) {
+    if (timerType == TimerType.POMODORO) {
+      duration = Duration(minutes: 25);
+    }
+    if (timerType == TimerType.SHORT_BREAK) {
+      duration = Duration(minutes: 5);
+    }
+    if (timerType == TimerType.LONG_BREAK) {
+      duration = Duration(minutes: 10);
+    }
   }
 
   @override
@@ -26,8 +35,16 @@ class TimerDataSourceImpl implements TimerDataSource {
   }
 
   @override
-  setTimerType(Duration setValue) {
-    duration = Duration(seconds: setValue.inSeconds);
+  setTimerType(TimerType timerType) {
+    if (timerType == TimerType.POMODORO) {
+      duration = Duration(minutes: 25);
+    }
+    if (timerType == TimerType.SHORT_BREAK) {
+      duration = Duration(minutes: 5);
+    }
+    if (timerType == TimerType.LONG_BREAK) {
+      duration = Duration(minutes: 10);
+    }
   }
 
   @override

@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             margin: const EdgeInsets.only(top: 30),
-            height: 269,
+
             // padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
@@ -73,24 +73,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           _color = pomodoroColor;
                         });
                         BlocProvider.of<PomodoroBloc>(context).add(
-                            const PomodoroEvent.resetPressed(
-                                resetValue: Duration(minutes: 25)));
+                            const PomodoroEvent.setTimerType(
+                                timerType: TimerType.POMODORO));
                       }
                       if (id == 1) {
                         setState(() {
                           _color = shortBreakColor;
+                          // shortBreakStartPressed = true;
                         });
                         BlocProvider.of<PomodoroBloc>(context).add(
-                            const PomodoroEvent.resetPressed(
-                                resetValue: Duration(minutes: 5)));
+                            const PomodoroEvent.setTimerType(
+                                timerType: TimerType.SHORT_BREAK));
                       }
                       if (id == 2) {
                         setState(() {
                           _color = longBreakColor;
                         });
                         BlocProvider.of<PomodoroBloc>(context).add(
-                            const PomodoroEvent.resetPressed(
-                                resetValue: Duration(minutes: 10)));
+                            const PomodoroEvent.setTimerType(
+                                timerType: TimerType.LONG_BREAK));
                       }
                     },
                     physics: const NeverScrollableScrollPhysics(),
@@ -136,8 +137,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         setState(() {
                           tabController?.index = 1;
                           BlocProvider.of<PomodoroBloc>(context).add(
-                              const PomodoroEvent.resetPressed(
-                                  resetValue: Duration(minutes: 5)));
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.SHORT_BREAK));
+                          BlocProvider.of<PomodoroBloc>(context)
+                              .add(const PomodoroEvent.resetPressed());
                           _color = shortBreakColor;
                         });
                       }),
@@ -145,8 +148,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         setState(() {
                           tabController?.index = 0;
                           BlocProvider.of<PomodoroBloc>(context).add(
-                              const PomodoroEvent.resetPressed(
-                                  resetValue: Duration(minutes: 25)));
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.POMODORO));
+                          BlocProvider.of<PomodoroBloc>(context)
+                              .add(const PomodoroEvent.resetPressed());
                           _color = pomodoroColor;
                         });
                       }),
@@ -154,8 +159,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         setState(() {
                           tabController?.index = 0;
                           BlocProvider.of<PomodoroBloc>(context).add(
-                              const PomodoroEvent.resetPressed(
-                                  resetValue: Duration(minutes: 25)));
+                              const PomodoroEvent.setTimerType(
+                                  timerType: TimerType.POMODORO));
+                          BlocProvider.of<PomodoroBloc>(context)
+                              .add(const PomodoroEvent.resetPressed());
                           _color = pomodoroColor;
                         });
                       }),

@@ -23,9 +23,8 @@ mixin _$PomodoroEvent {
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,8 +34,8 @@ mixin _$PomodoroEvent {
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,8 +45,8 @@ mixin _$PomodoroEvent {
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,9 +157,8 @@ class _$PomodoroTimerLoading
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) {
     return loding();
   }
@@ -173,8 +171,8 @@ class _$PomodoroTimerLoading
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) {
     return loding?.call();
   }
@@ -187,8 +185,8 @@ class _$PomodoroTimerLoading
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (loding != null) {
@@ -302,9 +300,8 @@ class _$PomodoroTimerLoaded
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) {
     return loaded();
   }
@@ -317,8 +314,8 @@ class _$PomodoroTimerLoaded
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) {
     return loaded?.call();
   }
@@ -331,8 +328,8 @@ class _$PomodoroTimerLoaded
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -446,9 +443,8 @@ class _$PomodoroTimerStoped
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) {
     return stop();
   }
@@ -461,8 +457,8 @@ class _$PomodoroTimerStoped
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) {
     return stop?.call();
   }
@@ -475,8 +471,8 @@ class _$PomodoroTimerStoped
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (stop != null) {
@@ -590,9 +586,8 @@ class _$PomodoroTimerStarted
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) {
     return started();
   }
@@ -605,8 +600,8 @@ class _$PomodoroTimerStarted
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) {
     return started?.call();
   }
@@ -619,8 +614,8 @@ class _$PomodoroTimerStarted
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -765,9 +760,8 @@ class _$PomodoroTimerDecrementPressed
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) {
     return decrement(decrementValue);
   }
@@ -780,8 +774,8 @@ class _$PomodoroTimerDecrementPressed
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) {
     return decrement?.call(decrementValue);
   }
@@ -794,8 +788,8 @@ class _$PomodoroTimerDecrementPressed
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (decrement != null) {
@@ -868,7 +862,6 @@ abstract class _$$PomodoroTimerResetPressedCopyWith<$Res> {
           _$PomodoroTimerResetPressed value,
           $Res Function(_$PomodoroTimerResetPressed) then) =
       __$$PomodoroTimerResetPressedCopyWithImpl<$Res>;
-  $Res call({Duration resetValue});
 }
 
 /// @nodoc
@@ -882,18 +875,6 @@ class __$$PomodoroTimerResetPressedCopyWithImpl<$Res>
   @override
   _$PomodoroTimerResetPressed get _value =>
       super._value as _$PomodoroTimerResetPressed;
-
-  @override
-  $Res call({
-    Object? resetValue = freezed,
-  }) {
-    return _then(_$PomodoroTimerResetPressed(
-      resetValue: resetValue == freezed
-          ? _value.resetValue
-          : resetValue // ignore: cast_nullable_to_non_nullable
-              as Duration,
-    ));
-  }
 }
 
 /// @nodoc
@@ -901,42 +882,28 @@ class __$$PomodoroTimerResetPressedCopyWithImpl<$Res>
 class _$PomodoroTimerResetPressed
     with DiagnosticableTreeMixin
     implements PomodoroTimerResetPressed {
-  const _$PomodoroTimerResetPressed({required this.resetValue});
-
-  @override
-  final Duration resetValue;
+  const _$PomodoroTimerResetPressed();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PomodoroEvent.resetPressed(resetValue: $resetValue)';
+    return 'PomodoroEvent.resetPressed()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PomodoroEvent.resetPressed'))
-      ..add(DiagnosticsProperty('resetValue', resetValue));
+    properties.add(DiagnosticsProperty('type', 'PomodoroEvent.resetPressed'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PomodoroTimerResetPressed &&
-            const DeepCollectionEquality()
-                .equals(other.resetValue, resetValue));
+            other is _$PomodoroTimerResetPressed);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(resetValue));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$PomodoroTimerResetPressedCopyWith<_$PomodoroTimerResetPressed>
-      get copyWith => __$$PomodoroTimerResetPressedCopyWithImpl<
-          _$PomodoroTimerResetPressed>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -946,11 +913,10 @@ class _$PomodoroTimerResetPressed
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) {
-    return resetPressed(resetValue);
+    return resetPressed();
   }
 
   @override
@@ -961,10 +927,10 @@ class _$PomodoroTimerResetPressed
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) {
-    return resetPressed?.call(resetValue);
+    return resetPressed?.call();
   }
 
   @override
@@ -975,12 +941,12 @@ class _$PomodoroTimerResetPressed
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (resetPressed != null) {
-      return resetPressed(resetValue);
+      return resetPressed();
     }
     return orElse();
   }
@@ -1033,13 +999,7 @@ class _$PomodoroTimerResetPressed
 }
 
 abstract class PomodoroTimerResetPressed implements PomodoroEvent {
-  const factory PomodoroTimerResetPressed(
-      {required final Duration resetValue}) = _$PomodoroTimerResetPressed;
-
-  Duration get resetValue => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$PomodoroTimerResetPressedCopyWith<_$PomodoroTimerResetPressed>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory PomodoroTimerResetPressed() = _$PomodoroTimerResetPressed;
 }
 
 /// @nodoc
@@ -1047,7 +1007,7 @@ abstract class _$$TimerTypeChangedCopyWith<$Res> {
   factory _$$TimerTypeChangedCopyWith(
           _$TimerTypeChanged value, $Res Function(_$TimerTypeChanged) then) =
       __$$TimerTypeChangedCopyWithImpl<$Res>;
-  $Res call({Duration setValue, TimerType timerType});
+  $Res call({TimerType timerType});
 }
 
 /// @nodoc
@@ -1063,14 +1023,9 @@ class __$$TimerTypeChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? setValue = freezed,
     Object? timerType = freezed,
   }) {
     return _then(_$TimerTypeChanged(
-      setValue: setValue == freezed
-          ? _value.setValue
-          : setValue // ignore: cast_nullable_to_non_nullable
-              as Duration,
       timerType: timerType == freezed
           ? _value.timerType
           : timerType // ignore: cast_nullable_to_non_nullable
@@ -1084,16 +1039,14 @@ class __$$TimerTypeChangedCopyWithImpl<$Res>
 class _$TimerTypeChanged
     with DiagnosticableTreeMixin
     implements TimerTypeChanged {
-  const _$TimerTypeChanged({required this.setValue, required this.timerType});
+  const _$TimerTypeChanged({required this.timerType});
 
-  @override
-  final Duration setValue;
   @override
   final TimerType timerType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PomodoroEvent.setTimerType(setValue: $setValue, timerType: $timerType)';
+    return 'PomodoroEvent.setTimerType(timerType: $timerType)';
   }
 
   @override
@@ -1101,7 +1054,6 @@ class _$TimerTypeChanged
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'PomodoroEvent.setTimerType'))
-      ..add(DiagnosticsProperty('setValue', setValue))
       ..add(DiagnosticsProperty('timerType', timerType));
   }
 
@@ -1110,15 +1062,12 @@ class _$TimerTypeChanged
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TimerTypeChanged &&
-            const DeepCollectionEquality().equals(other.setValue, setValue) &&
             const DeepCollectionEquality().equals(other.timerType, timerType));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(setValue),
-      const DeepCollectionEquality().hash(timerType));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(timerType));
 
   @JsonKey(ignore: true)
   @override
@@ -1133,11 +1082,10 @@ class _$TimerTypeChanged
     required TResult Function() stop,
     required TResult Function() started,
     required TResult Function(Duration decrementValue) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue, TimerType timerType)
-        setTimerType,
+    required TResult Function() resetPressed,
+    required TResult Function(TimerType timerType) setTimerType,
   }) {
-    return setTimerType(setValue, timerType);
+    return setTimerType(timerType);
   }
 
   @override
@@ -1148,10 +1096,10 @@ class _$TimerTypeChanged
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
   }) {
-    return setTimerType?.call(setValue, timerType);
+    return setTimerType?.call(timerType);
   }
 
   @override
@@ -1162,12 +1110,12 @@ class _$TimerTypeChanged
     TResult Function()? stop,
     TResult Function()? started,
     TResult Function(Duration decrementValue)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue, TimerType timerType)? setTimerType,
+    TResult Function()? resetPressed,
+    TResult Function(TimerType timerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (setTimerType != null) {
-      return setTimerType(setValue, timerType);
+      return setTimerType(timerType);
     }
     return orElse();
   }
@@ -1220,11 +1168,9 @@ class _$TimerTypeChanged
 }
 
 abstract class TimerTypeChanged implements PomodoroEvent {
-  const factory TimerTypeChanged(
-      {required final Duration setValue,
-      required final TimerType timerType}) = _$TimerTypeChanged;
+  const factory TimerTypeChanged({required final TimerType timerType}) =
+      _$TimerTypeChanged;
 
-  Duration get setValue => throw _privateConstructorUsedError;
   TimerType get timerType => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$TimerTypeChangedCopyWith<_$TimerTypeChanged> get copyWith =>
@@ -1241,8 +1187,8 @@ mixin _$PomodoroState {
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1253,8 +1199,8 @@ mixin _$PomodoroState {
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1265,8 +1211,8 @@ mixin _$PomodoroState {
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1408,8 +1354,8 @@ class _$_PomodoroInitial
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
     return initial(initialValue);
   }
@@ -1423,8 +1369,8 @@ class _$_PomodoroInitial
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
     return initial?.call(initialValue);
   }
@@ -1438,8 +1384,8 @@ class _$_PomodoroInitial
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1563,8 +1509,8 @@ class _$_PomodoroLoading
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
     return loading();
   }
@@ -1578,8 +1524,8 @@ class _$_PomodoroLoading
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
     return loading?.call();
   }
@@ -1593,8 +1539,8 @@ class _$_PomodoroLoading
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1739,8 +1685,8 @@ class _$_PomodoroLoaded
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
     return loaded(initialValue);
   }
@@ -1754,8 +1700,8 @@ class _$_PomodoroLoaded
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
     return loaded?.call(initialValue);
   }
@@ -1769,8 +1715,8 @@ class _$_PomodoroLoaded
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1894,8 +1840,8 @@ class _$_PomodoroTimerStart
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
     return started();
   }
@@ -1909,8 +1855,8 @@ class _$_PomodoroTimerStart
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
     return started?.call();
   }
@@ -1924,8 +1870,8 @@ class _$_PomodoroTimerStart
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -2070,8 +2016,8 @@ class _$_PomodoroTimerStop
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
     return stop(timer);
   }
@@ -2085,8 +2031,8 @@ class _$_PomodoroTimerStop
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
     return stop?.call(timer);
   }
@@ -2100,8 +2046,8 @@ class _$_PomodoroTimerStop
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (stop != null) {
@@ -2254,8 +2200,8 @@ class _$_PomodoroTimerDecrement
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
     return decrement(currentDuration);
   }
@@ -2269,8 +2215,8 @@ class _$_PomodoroTimerDecrement
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
     return decrement?.call(currentDuration);
   }
@@ -2284,8 +2230,8 @@ class _$_PomodoroTimerDecrement
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (decrement != null) {
@@ -2359,7 +2305,7 @@ abstract class _$$_PomodoroTimerResetCopyWith<$Res> {
   factory _$$_PomodoroTimerResetCopyWith(_$_PomodoroTimerReset value,
           $Res Function(_$_PomodoroTimerReset) then) =
       __$$_PomodoroTimerResetCopyWithImpl<$Res>;
-  $Res call({Duration resetValue});
+  $Res call({Duration currentTime});
 }
 
 /// @nodoc
@@ -2375,12 +2321,12 @@ class __$$_PomodoroTimerResetCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? resetValue = freezed,
+    Object? currentTime = freezed,
   }) {
     return _then(_$_PomodoroTimerReset(
-      resetValue: resetValue == freezed
-          ? _value.resetValue
-          : resetValue // ignore: cast_nullable_to_non_nullable
+      currentTime: currentTime == freezed
+          ? _value.currentTime
+          : currentTime // ignore: cast_nullable_to_non_nullable
               as Duration,
     ));
   }
@@ -2391,14 +2337,14 @@ class __$$_PomodoroTimerResetCopyWithImpl<$Res>
 class _$_PomodoroTimerReset
     with DiagnosticableTreeMixin
     implements _PomodoroTimerReset {
-  const _$_PomodoroTimerReset({required this.resetValue});
+  const _$_PomodoroTimerReset({required this.currentTime});
 
   @override
-  final Duration resetValue;
+  final Duration currentTime;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PomodoroState.resetPressed(resetValue: $resetValue)';
+    return 'PomodoroState.resetPressed(currentTime: $currentTime)';
   }
 
   @override
@@ -2406,7 +2352,7 @@ class _$_PomodoroTimerReset
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'PomodoroState.resetPressed'))
-      ..add(DiagnosticsProperty('resetValue', resetValue));
+      ..add(DiagnosticsProperty('currentTime', currentTime));
   }
 
   @override
@@ -2415,12 +2361,12 @@ class _$_PomodoroTimerReset
         (other.runtimeType == runtimeType &&
             other is _$_PomodoroTimerReset &&
             const DeepCollectionEquality()
-                .equals(other.resetValue, resetValue));
+                .equals(other.currentTime, currentTime));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(resetValue));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(currentTime));
 
   @JsonKey(ignore: true)
   @override
@@ -2437,10 +2383,10 @@ class _$_PomodoroTimerReset
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
-    return resetPressed(resetValue);
+    return resetPressed(currentTime);
   }
 
   @override
@@ -2452,10 +2398,10 @@ class _$_PomodoroTimerReset
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
-    return resetPressed?.call(resetValue);
+    return resetPressed?.call(currentTime);
   }
 
   @override
@@ -2467,12 +2413,12 @@ class _$_PomodoroTimerReset
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (resetPressed != null) {
-      return resetPressed(resetValue);
+      return resetPressed(currentTime);
     }
     return orElse();
   }
@@ -2528,10 +2474,10 @@ class _$_PomodoroTimerReset
 }
 
 abstract class _PomodoroTimerReset implements PomodoroState {
-  const factory _PomodoroTimerReset({required final Duration resetValue}) =
+  const factory _PomodoroTimerReset({required final Duration currentTime}) =
       _$_PomodoroTimerReset;
 
-  Duration get resetValue => throw _privateConstructorUsedError;
+  Duration get currentTime => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_PomodoroTimerResetCopyWith<_$_PomodoroTimerReset> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2542,7 +2488,7 @@ abstract class _$$_PomodoroTimerChangeCopyWith<$Res> {
   factory _$$_PomodoroTimerChangeCopyWith(_$_PomodoroTimerChange value,
           $Res Function(_$_PomodoroTimerChange) then) =
       __$$_PomodoroTimerChangeCopyWithImpl<$Res>;
-  $Res call({Duration setValue});
+  $Res call({TimerType setTimerType});
 }
 
 /// @nodoc
@@ -2558,13 +2504,13 @@ class __$$_PomodoroTimerChangeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? setValue = freezed,
+    Object? setTimerType = freezed,
   }) {
     return _then(_$_PomodoroTimerChange(
-      setValue: setValue == freezed
-          ? _value.setValue
-          : setValue // ignore: cast_nullable_to_non_nullable
-              as Duration,
+      setTimerType: setTimerType == freezed
+          ? _value.setTimerType
+          : setTimerType // ignore: cast_nullable_to_non_nullable
+              as TimerType,
     ));
   }
 }
@@ -2574,14 +2520,14 @@ class __$$_PomodoroTimerChangeCopyWithImpl<$Res>
 class _$_PomodoroTimerChange
     with DiagnosticableTreeMixin
     implements _PomodoroTimerChange {
-  const _$_PomodoroTimerChange({required this.setValue});
+  const _$_PomodoroTimerChange({required this.setTimerType});
 
   @override
-  final Duration setValue;
+  final TimerType setTimerType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PomodoroState.setTimerType(setValue: $setValue)';
+    return 'PomodoroState.setTimerType(setTimerType: $setTimerType)';
   }
 
   @override
@@ -2589,7 +2535,7 @@ class _$_PomodoroTimerChange
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'PomodoroState.setTimerType'))
-      ..add(DiagnosticsProperty('setValue', setValue));
+      ..add(DiagnosticsProperty('setTimerType', setTimerType));
   }
 
   @override
@@ -2597,12 +2543,13 @@ class _$_PomodoroTimerChange
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PomodoroTimerChange &&
-            const DeepCollectionEquality().equals(other.setValue, setValue));
+            const DeepCollectionEquality()
+                .equals(other.setTimerType, setTimerType));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(setValue));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(setTimerType));
 
   @JsonKey(ignore: true)
   @override
@@ -2619,10 +2566,10 @@ class _$_PomodoroTimerChange
     required TResult Function() started,
     required TResult Function(Duration timer) stop,
     required TResult Function(Duration currentDuration) decrement,
-    required TResult Function(Duration resetValue) resetPressed,
-    required TResult Function(Duration setValue) setTimerType,
+    required TResult Function(Duration currentTime) resetPressed,
+    required TResult Function(TimerType setTimerType) setTimerType,
   }) {
-    return setTimerType(setValue);
+    return setTimerType(this.setTimerType);
   }
 
   @override
@@ -2634,10 +2581,10 @@ class _$_PomodoroTimerChange
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
   }) {
-    return setTimerType?.call(setValue);
+    return setTimerType?.call(this.setTimerType);
   }
 
   @override
@@ -2649,12 +2596,12 @@ class _$_PomodoroTimerChange
     TResult Function()? started,
     TResult Function(Duration timer)? stop,
     TResult Function(Duration currentDuration)? decrement,
-    TResult Function(Duration resetValue)? resetPressed,
-    TResult Function(Duration setValue)? setTimerType,
+    TResult Function(Duration currentTime)? resetPressed,
+    TResult Function(TimerType setTimerType)? setTimerType,
     required TResult orElse(),
   }) {
     if (setTimerType != null) {
-      return setTimerType(setValue);
+      return setTimerType(this.setTimerType);
     }
     return orElse();
   }
@@ -2710,10 +2657,10 @@ class _$_PomodoroTimerChange
 }
 
 abstract class _PomodoroTimerChange implements PomodoroState {
-  const factory _PomodoroTimerChange({required final Duration setValue}) =
+  const factory _PomodoroTimerChange({required final TimerType setTimerType}) =
       _$_PomodoroTimerChange;
 
-  Duration get setValue => throw _privateConstructorUsedError;
+  TimerType get setTimerType => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_PomodoroTimerChangeCopyWith<_$_PomodoroTimerChange> get copyWith =>
       throw _privateConstructorUsedError;

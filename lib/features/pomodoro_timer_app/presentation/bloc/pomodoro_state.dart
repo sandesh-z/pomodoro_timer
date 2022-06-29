@@ -12,8 +12,8 @@ class PomodoroState with _$PomodoroState {
       _PomodoroTimerStop;
   const factory PomodoroState.decrement({required Duration currentDuration}) =
       _PomodoroTimerDecrement;
-  const factory PomodoroState.resetPressed({required Duration resetValue}) =
+  const factory PomodoroState.resetPressed({required Duration currentTime}) =
       _PomodoroTimerReset;
-  const factory PomodoroState.setTimerType({required Duration setValue}) =
+  const factory PomodoroState.setTimerType({required TimerType setTimerType}) =
       _PomodoroTimerChange;
 }
