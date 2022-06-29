@@ -38,9 +38,9 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  child: const Text(
+                  child: Text(
                     'Cancel',
-                    style: TextStyle(color: Colors.green, fontSize: 16),
+                    style: TextStyle(color: pomodoroColor, fontSize: 16),
                   ),
                   onPressed: () {
                     BlocProvider.of<PomodoroBloc>(context).add(

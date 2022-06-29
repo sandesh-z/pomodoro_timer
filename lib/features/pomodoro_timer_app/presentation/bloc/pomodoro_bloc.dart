@@ -29,7 +29,7 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
         timer = null;
         // timerIsZero = true;
         final player = AudioPlayer();
-        player.play(AssetSource("alarm.wav"));
+        player.play(AssetSource("alarm-kitchen.mp3"));
         pomodoroTimerRepository.resetTimer(currentTimerType);
         // PomodoroState.timerIsZero(timerIsZero: true);
         // PomodoroState.resetPressed(resetValue: event.)

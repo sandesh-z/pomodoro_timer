@@ -33,9 +33,9 @@ class _LongBreakPageState extends State<LongBreakPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  child: const Text(
+                  child: Text(
                     'Cancel',
-                    style: TextStyle(color: Colors.red, fontSize: 16),
+                    style: TextStyle(color: longBreakColor, fontSize: 16),
                   ),
                   onPressed: () {
                     BlocProvider.of<PomodoroBloc>(context).add(

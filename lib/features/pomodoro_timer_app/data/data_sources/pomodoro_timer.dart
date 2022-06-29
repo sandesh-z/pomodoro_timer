@@ -8,9 +8,6 @@ class TimerDataSourceImpl implements TimerDataSource {
 
   Duration duration = const Duration(minutes: 25);
 
-  Duration shortBreakDuration = const Duration(minutes: 5);
-  Duration longBreakDuration = const Duration(minutes: 10);
-
   @override
   subtractTimer(Duration subtractValue) {
     duration = Duration(seconds: duration.inSeconds - subtractValue.inSeconds);
@@ -19,13 +16,13 @@ class TimerDataSourceImpl implements TimerDataSource {
   @override
   resetTimer(TimerType timerType) {
     if (timerType == TimerType.POMODORO) {
-      duration = Duration(minutes: 25);
+      duration = const Duration(minutes: 5);
     }
     if (timerType == TimerType.SHORT_BREAK) {
-      duration = Duration(minutes: 5);
+      duration = const Duration(minutes: 5);
     }
     if (timerType == TimerType.LONG_BREAK) {
-      duration = Duration(minutes: 10);
+      duration = const Duration(minutes: 10);
     }
   }
 

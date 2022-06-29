@@ -27,7 +27,7 @@
         <screen android:screenSize="large" android:screenDensity="640" />
    </compatible-screens>
    <application
-        android:label="my_pomodoro_timer"
+        android:label="Pomodoro"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -35,7 +35,7 @@
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
-          
+            android:configChanges="orientation"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
             <!-- Specifies an Android theme to apply to this Activity as soon as

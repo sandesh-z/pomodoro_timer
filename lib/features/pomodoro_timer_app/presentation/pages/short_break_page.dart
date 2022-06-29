@@ -34,9 +34,9 @@ class _ShortBreakPageState extends State<ShortBreakPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  child: const Text(
+                  child: Text(
                     'Cancel',
-                    style: TextStyle(color: Colors.red, fontSize: 16),
+                    style: TextStyle(color: shortBreakColor, fontSize: 16),
                   ),
                   onPressed: () {
                     BlocProvider.of<PomodoroBloc>(context).add(

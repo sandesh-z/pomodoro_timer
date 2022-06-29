@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             margin: const EdgeInsets.only(top: 30),
-
+            height: 269,
             // padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
@@ -75,6 +75,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
                                 timerType: TimerType.POMODORO));
+                        BlocProvider.of<PomodoroBloc>(context)
+                            .add(const PomodoroEvent.stop());
                       }
                       if (id == 1) {
                         setState(() {
@@ -84,6 +86,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
                                 timerType: TimerType.SHORT_BREAK));
+                        BlocProvider.of<PomodoroBloc>(context)
+                            .add(const PomodoroEvent.stop());
                       }
                       if (id == 2) {
                         setState(() {
@@ -92,6 +96,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
                                 timerType: TimerType.LONG_BREAK));
+                        BlocProvider.of<PomodoroBloc>(context)
+                            .add(const PomodoroEvent.stop());
                       }
                     },
                     physics: const NeverScrollableScrollPhysics(),
