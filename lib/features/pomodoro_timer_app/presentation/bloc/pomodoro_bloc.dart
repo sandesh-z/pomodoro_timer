@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_pomodoro_timer/notification_service.dart';
 
-import '../../../../core/themes/my_globals.dart';
 import '../../domain/repositories/pomodoro_timer.dart';
 
 part 'pomodoro_event.dart';
@@ -70,7 +69,7 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
     on<TimerTypeChanged>((TimerTypeChanged event, Emitter<PomodoroState> emit) {
       pomodoroTimerRepository.setTimerType(event.timerType);
 
-      this.currentTimerType = event.timerType;
+      currentTimerType = event.timerType;
       // add(PomodoroEvent.resetPressed());
       emit(PomodoroState.resetPressed(
           currentTime: pomodoroTimerRepository.getTimer()));
