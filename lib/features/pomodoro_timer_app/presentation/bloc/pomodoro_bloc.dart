@@ -3,6 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:my_pomodoro_timer/notification_service.dart';
 
 import '../../../../core/themes/my_globals.dart';
 import '../../domain/repositories/pomodoro_timer.dart';
@@ -15,6 +16,8 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
   TimerType currentTimerType = TimerType.POMODORO;
   PomodoroTimerRepository pomodoroTimerRepository;
+  String notificationPomodoro = "Time for break";
+  String notificationBreak = "Time to focus";
 
   PomodoroBloc(this.pomodoroTimerRepository)
       : super(const PomodoroState.initial(
@@ -27,12 +30,24 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
       if (pomodoroTimerRepository.getTimer().inSeconds == 0) {
         timer?.cancel();
         timer = null;
-        // timerIsZero = true;
         final player = AudioPlayer();
         player.play(AssetSource("alarm-kitchen.mp3"));
+
         pomodoroTimerRepository.resetTimer(currentTimerType);
-        // PomodoroState.timerIsZero(timerIsZero: true);
-        // PomodoroState.resetPressed(resetValue: event.)
+        if (currentTimerType == TimerType.POMODORO) {
+          NotificationService.showNotification(
+              id: 0,
+              body: notificationPomodoro,
+              title: "Pomodoro",
+              payloads: "this");
+        } else {
+          NotificationService.showNotification(
+              id: 0,
+              body: notificationBreak,
+              title: "Pomodoro",
+              payloads: "this");
+        }
+
         emit(const PomodoroState.loading());
 
         return;

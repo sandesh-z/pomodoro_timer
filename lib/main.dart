@@ -6,11 +6,14 @@ import 'package:my_pomodoro_timer/core/themes/themes.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/domain/repositories/pomodoro_timer.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
 import 'package:my_pomodoro_timer/injection.dart';
+import 'package:my_pomodoro_timer/notification_service.dart';
 
 import 'features/pomodoro_timer_app/presentation/pages/home_page.dart';
 
 void main() {
   configureDependencies();
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationService.init(initScheduled: true);
   BlocOverrides.runZoned(
     () {
       runApp(const MyApp());
