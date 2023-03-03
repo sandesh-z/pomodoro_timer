@@ -19,13 +19,13 @@ class TimerDataSourceImpl implements TimerDataSource {
   @override
   resetTimer(TimerType timerType) {
     if (timerType == TimerType.POMODORO) {
-      duration = Duration(minutes: 25);
+      duration = const Duration(minutes: 25);
     }
     if (timerType == TimerType.SHORT_BREAK) {
-      duration = Duration(minutes: 5);
+      duration = const Duration(minutes: 5);
     }
     if (timerType == TimerType.LONG_BREAK) {
-      duration = Duration(minutes: 10);
+      duration = const Duration(minutes: 10);
     }
   }
 
@@ -37,13 +37,13 @@ class TimerDataSourceImpl implements TimerDataSource {
   @override
   setTimerType(TimerType timerType) {
     if (timerType == TimerType.POMODORO) {
-      duration = Duration(minutes: 25);
+      duration = const Duration(minutes: 25);
     }
     if (timerType == TimerType.SHORT_BREAK) {
-      duration = Duration(minutes: 5);
+      duration = const Duration(minutes: 5);
     }
     if (timerType == TimerType.LONG_BREAK) {
-      duration = Duration(minutes: 10);
+      duration = const Duration(minutes: 10);
     }
   }
 
