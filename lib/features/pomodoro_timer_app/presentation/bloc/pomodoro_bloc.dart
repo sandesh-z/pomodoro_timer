@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/themes/my_globals.dart';
 import '../../domain/repositories/pomodoro_timer.dart';
 
 part 'pomodoro_event.dart';
@@ -13,7 +12,7 @@ part 'pomodoro_bloc.freezed.dart';
 
 class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
   Timer? timer;
-  TimerType currentTimerType = TimerType.POMODORO;
+  TimerType currentTimerType = TimerType.pomodoro;
   PomodoroTimerRepository pomodoroTimerRepository;
 
   PomodoroBloc(this.pomodoroTimerRepository)
@@ -27,12 +26,10 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
       if (pomodoroTimerRepository.getTimer().inSeconds == 0) {
         timer?.cancel();
         timer = null;
-        // timerIsZero = true;
         final player = AudioPlayer();
         player.play(AssetSource("alarm.wav"));
         pomodoroTimerRepository.resetTimer(currentTimerType);
-        // PomodoroState.timerIsZero(timerIsZero: true);
-        // PomodoroState.resetPressed(resetValue: event.)
+
         emit(const PomodoroState.loading());
 
         return;
@@ -55,7 +52,7 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
     on<TimerTypeChanged>((TimerTypeChanged event, Emitter<PomodoroState> emit) {
       pomodoroTimerRepository.setTimerType(event.timerType);
 
-      this.currentTimerType = event.timerType;
+      currentTimerType = event.timerType;
       // add(PomodoroEvent.resetPressed());
       emit(PomodoroState.resetPressed(
           currentTime: pomodoroTimerRepository.getTimer()));
@@ -79,7 +76,7 @@ class PomodoroBloc extends Bloc<PomodoroEvent, PomodoroState> {
 }
 
 enum TimerType {
-  POMODORO,
-  SHORT_BREAK,
-  LONG_BREAK,
+  pomodoro,
+  shortBreak,
+  longBreak,
 }

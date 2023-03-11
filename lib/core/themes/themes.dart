@@ -4,8 +4,6 @@ final lightTheme = ThemeData(
   brightness: Brightness.light,
   useMaterial3: true,
   primarySwatch: Colors.red,
-  // scaffoldBackgroundColor: const Color.fromRGBO(217, 85, 80, 0.9),
-  // textButtonTheme: _kTextButtonTheme,
   textTheme: const TextTheme(
     bodyText1: TextStyle(
         color: Colors.white,
@@ -20,19 +18,3 @@ final lightTheme = ThemeData(
     backgroundColor: Colors.white,
   ),
 );
-
-// final _kTextButtonTheme = TextButtonThemeData(
-//   style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) {
-//     if (states.contains(MaterialState.pressed)) {
-//       return Colors.blue;
-//     }
-
-//     return Colors.white;
-//   }), foregroundColor: MaterialStateColor.resolveWith((states) {
-//     if (states.contains(MaterialState.pressed)) {
-//       return Colors.white;
-//     }
-
-//     return Colors.grey;
-//   })),
-// );

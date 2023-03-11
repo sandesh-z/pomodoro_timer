@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
@@ -9,7 +7,7 @@ import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/pages
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/pages/short_break_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -74,7 +72,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         });
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                timerType: TimerType.POMODORO));
+                                timerType: TimerType.pomodoro));
                       }
                       if (id == 1) {
                         setState(() {
@@ -83,7 +81,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         });
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                timerType: TimerType.SHORT_BREAK));
+                                timerType: TimerType.shortBreak));
                       }
                       if (id == 2) {
                         setState(() {
@@ -91,7 +89,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         });
                         BlocProvider.of<PomodoroBloc>(context).add(
                             const PomodoroEvent.setTimerType(
-                                timerType: TimerType.LONG_BREAK));
+                                timerType: TimerType.longBreak));
                       }
                     },
                     physics: const NeverScrollableScrollPhysics(),
@@ -138,7 +136,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           tabController?.index = 1;
                           BlocProvider.of<PomodoroBloc>(context).add(
                               const PomodoroEvent.setTimerType(
-                                  timerType: TimerType.SHORT_BREAK));
+                                  timerType: TimerType.shortBreak));
                           BlocProvider.of<PomodoroBloc>(context)
                               .add(const PomodoroEvent.resetPressed());
                           _color = shortBreakColor;
@@ -149,7 +147,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           tabController?.index = 0;
                           BlocProvider.of<PomodoroBloc>(context).add(
                               const PomodoroEvent.setTimerType(
-                                  timerType: TimerType.POMODORO));
+                                  timerType: TimerType.pomodoro));
                           BlocProvider.of<PomodoroBloc>(context)
                               .add(const PomodoroEvent.resetPressed());
                           _color = pomodoroColor;
@@ -160,7 +158,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           tabController?.index = 0;
                           BlocProvider.of<PomodoroBloc>(context).add(
                               const PomodoroEvent.setTimerType(
-                                  timerType: TimerType.POMODORO));
+                                  timerType: TimerType.pomodoro));
                           BlocProvider.of<PomodoroBloc>(context)
                               .add(const PomodoroEvent.resetPressed());
                           _color = pomodoroColor;
