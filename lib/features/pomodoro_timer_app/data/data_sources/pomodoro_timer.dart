@@ -4,13 +4,7 @@ import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/
 
 @LazySingleton(as: TimerDataSource)
 class TimerDataSourceImpl implements TimerDataSource {
-  TimerDataSourceImpl();
-
   Duration duration = const Duration(minutes: 25);
-
-  Duration shortBreakDuration = const Duration(minutes: 5);
-  Duration longBreakDuration = const Duration(minutes: 10);
-
   @override
   subtractTimer(Duration subtractValue) {
     duration = Duration(seconds: duration.inSeconds - subtractValue.inSeconds);

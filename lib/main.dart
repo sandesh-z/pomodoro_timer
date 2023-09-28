@@ -21,18 +21,14 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PomodoroBloc>(
       create: (_) => PomodoroBloc(
         getIt<PomodoroTimerRepository>(),
       ),
-      // )..add(const PomodoroEvent.loaded()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
         theme: lightTheme,
         home: const HomePage(),
       ),
