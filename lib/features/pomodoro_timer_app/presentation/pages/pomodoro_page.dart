@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/widgets/controls_widget.dart';
+import '../../../../utils/ad_helper.dart';
 import '../bloc/pomodoro_bloc.dart';
 import '../widgets/popup_dialog.dart';
 
@@ -24,6 +26,34 @@ class PomodoroTimerPage extends StatefulWidget {
 class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
   bool pomodoroStartPressed = true;
   bool isTimerActive = false;
+  BannerAd? _bannerAd;
+  @override
+  void initState() {
+    BannerAd(
+      adUnitId: AdHelper.bannerAdUnitId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          debugPrint('Failed to load a banner ad: ${err.message}');
+          ad.dispose();
+        },
+      ),
+    ).load();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    _bannerAd = null;
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +130,14 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                       },
                     ));
           },
-        )
+        ),
+        const Spacer(),
+        if (_bannerAd != null)
+          SizedBox(
+            width: _bannerAd!.size.width.toDouble(),
+            height: _bannerAd!.size.height.toDouble(),
+            child: AdWidget(ad: _bannerAd!),
+          ),
       ],
     );
   }
