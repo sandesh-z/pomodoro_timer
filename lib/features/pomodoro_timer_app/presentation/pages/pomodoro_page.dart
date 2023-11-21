@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/widgets/controls_widget.dart';
@@ -70,8 +71,8 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
                 reset: (value) => parseDuration(value.currentTime),
                 setTimerType: (value) => value.setTimerType.toString(),
               ),
-              style: const TextStyle(
-                fontSize: 80,
+              style: TextStyle(
+                fontSize: 80.sp,
                 fontWeight: FontWeight.bold,
               ),
             );

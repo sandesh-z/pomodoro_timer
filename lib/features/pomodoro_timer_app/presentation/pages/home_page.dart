@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pomodoro_timer/core/themes/my_globals.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/bloc/pomodoro_bloc.dart';
 import 'package:my_pomodoro_timer/features/pomodoro_timer_app/presentation/pages/pomodoro_page.dart';
@@ -34,15 +35,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
     return SafeArea(
       child: Scaffold(
         backgroundColor: _color,
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0.r),
           child: Container(
-            margin: const EdgeInsets.only(top: 30),
+            margin: EdgeInsets.only(top: 30.r),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.r),
               color: Colors.white.withOpacity(0.1),
             ),
             child: Column(
@@ -90,12 +92,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     },
                     physics: const NeverScrollableScrollPhysics(),
                     indicatorColor: Colors.transparent,
-                    tabs: const [
+                    tabs: [
                       Tab(
                         child: Text(
                           'Pomodoro',
                           style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontFamily: 'ArialRounded',
                               letterSpacing: 1.1,
                               fontWeight: FontWeight.w400),
@@ -105,7 +107,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: Text(
                           'Short Break',
                           style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontFamily: 'ArialRounded',
                               letterSpacing: 1.1,
                               fontWeight: FontWeight.w400),
@@ -115,7 +117,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: Text(
                           'Long Break',
                           style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontFamily: 'ArialRounded',
                               letterSpacing: 1.1,
                               fontWeight: FontWeight.w400),
